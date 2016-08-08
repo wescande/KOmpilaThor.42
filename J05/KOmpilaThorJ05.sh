@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 08:25:32 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/08 08:31:59 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,17 @@ EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
 echo "#include <stdio.h>
 
 int		ft_putchar(char c);
+" > J05.c
 
+
+if [ "$EX" != "ex01" ]
+then
+echo  "
 int		ft_putnbr(int nb);
+" >> J05.c
+fi
 
+echo "
 void	ft_putstr(char *str);
 
 void	ft_putnbr(int nb);
@@ -28,7 +36,7 @@ char	*ft_strcpy(char *dest, char *src);
 
 int		main(void)
 {
-	\c" > J05.c
+	\c" >> J05.c
 if [ "$EX" = "ex00" ]
 then
 echo '

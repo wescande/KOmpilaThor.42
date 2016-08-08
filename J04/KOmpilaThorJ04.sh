@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 07:16:41 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/08 08:57:39 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ echo '
 	ret00 != 0 ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex01" ]
@@ -118,7 +118,7 @@ echo '
 	ret01 != 0 ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex02" ]
@@ -165,7 +165,7 @@ echo '
 	val_ret != -2147483648 ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex03" ]
@@ -212,7 +212,7 @@ echo '
 	val_ret != -2147483648 ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex04" ]
@@ -269,7 +269,7 @@ echo '
 	val_ret != val_correct ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex05" ]
@@ -331,7 +331,7 @@ echo '
 	val_ret != val_correct ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex06" ]
@@ -398,7 +398,7 @@ echo '
 	val_ret != val_correct ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex07" ]
@@ -460,7 +460,7 @@ echo '
 	val_ret != val_correct ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 if [ "$EX" = "ex08" ]
@@ -480,7 +480,7 @@ echo '
 	val_ret != val_correct ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 
@@ -495,7 +495,7 @@ echo '
 	ft_eight_queens_puzzle_2();
 	printf("\033[31m<====================Indeterminé !======================>\\n");
 	printf("\033[0m");
-' >> J04.c
+' >>  J04.c
 fi
 
 
@@ -503,11 +503,13 @@ echo "
 	return (0);
 }" >> J04.c
 
-gcc -Wall -Wextra -Werror J04.c ft_*.c $1 -o ./.KOmpilaThorJ04_compile
+gcc -Wall -Wextra -Werror J04.c ft_*.c $1 -o ./KOmpilaThorJ04_compile
 
-./.KOmpilaThorJ04_compile
+./KOmpilaThorJ04_compile
 
-rm ./.KOmpilaThorJ04_compile
+rm ./KOmpilaThorJ04_compile
 
 norminette -R CheckForbiddenSourceHeader $1
+
+
 
