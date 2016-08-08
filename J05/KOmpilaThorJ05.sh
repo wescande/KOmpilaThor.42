@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 08:31:59 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/08 12:04:48 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ echo '
 	printf("<=================================================>\\n");
 	printf("Ex 00 : ft_putstr\\n");
 	printf("\\n");
-	char *str= "j~e s0ys une chAine !@$%#"
+	char *str= "j~e s0ys une chAine !@$%#";
 	printf("Test #0 avec \"%s\"", str);
 	ft_putstr(str);
 	printf("\033[31m<====================Indeterminé !======================>\\n");
