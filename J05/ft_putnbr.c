@@ -6,13 +6,13 @@
 /*   By: wescande <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 01:58:21 by wescande          #+#    #+#             */
-/*   Updated: 2016/08/06 11:07:19 by wescande         ###   ########.fr       */
+/*   Updated: 2016/08/08 12:17:29 by wescande         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_putchar(char c);
 
-void	ft_putnbr(int nb)
+int		ft_putnbr(int nb)
 {
 	int length;
 	int writing;
@@ -40,4 +40,5 @@ void	ft_putnbr(int nb)
 			length /= 10;
 		}
 	}
+	return(0);
 }

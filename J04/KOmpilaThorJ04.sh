@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 09:02:56 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/08 12:41:50 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -507,7 +507,10 @@ gcc -Wall -Wextra -Werror J04.c ft_*.c $1 -o ./KOmpilaThorJ04_compile
 
 ./KOmpilaThorJ04_compile
 
-rm ./KOmpilaThorJ04_compile
+if [[ "$2" != "-c" ]]
+then
+	rm ./KOmpilaThorJ04_compile
+fi
 
 norminette -R CheckForbiddenSourceHeader $1
 

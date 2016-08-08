@@ -1,34 +1,39 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    KOmpilaThorJ04.sh                                  :+:      :+:    :+:    #
+#    KOmpilaThorJ05.sh                                  :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 12:04:48 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/08 12:59:00 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
 
-echo "#include <stdio.h>
+echo "
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   KompilaThorJ05.compile                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wescande <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
+/*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
 
 int		ft_putchar(char c);
-" > J05.c
 
 
-if [ "$EX" != "ex01" ]
-then
-echo  "
 int		ft_putnbr(int nb);
-" >> J05.c
-fi
 
-echo "
 void	ft_putstr(char *str);
 
-void	ft_putnbr(int nb);
 
 int		ft_atoi(char *str);
 
@@ -36,7 +41,8 @@ char	*ft_strcpy(char *dest, char *src);
 
 int		main(void)
 {
-	\c" >> J05.c
+	\c" > J05.c
+
 if [ "$EX" = "ex00" ]
 then
 echo '
@@ -62,19 +68,19 @@ echo '
 	int val_send;
 	val_send = 0;
 	printf("Test #0 avec \"%d\"", val_send);
-	ft_recursive_factorial(val_send);
+	ft_putnbr(val_send);
 	val_send = -1245;
 	printf("\\nTest #1 avec \"%d\"", val_send);
-	ft_recursive_factorial(val_send);
+	ft_putnbr(val_send);
 	val_send = -2147483648;
 	printf("\\nTest #2 avec \"%d\"", val_send);
-	ft_recursive_factorial(val_send);
+	ft_putnbr(val_send);
 	val_send = -2;
 	printf("\\nTest #3 avec \"%d\"", val_send);
-	ft_recursive_factorial(val_send);
+	ft_putnbr(val_send);
 	val_send = 2147483647;
 	printf("\\nTest #4 avec \"%d\"", val_send);
-	ft_recursive_factorial(val_send);
+	ft_putnbr(val_send);
 	printf("\\n");
 	printf("\033[31m<====================Indeterminé !======================>\\n");
 	printf("\033[0m");
@@ -473,4 +479,6 @@ gcc -Wall -Wextra -Werror J05.c ft_*.c $1 -o ./.KOmpilaThorJ05.compile
 rm ./.KOmpilaThorJ05.compile
 
 norminette -R CheckForbiddenSourceHeader $1
+
+
 
