@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 12:41:50 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/08 16:46:59 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -457,6 +457,11 @@ echo '
 	val_correct = 2147483647;
 	val_ret = ft_find_next_prime(val_send);
 	printf("Test #6 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
+	val_ret != val_correct ? correct++ : 0;
+	val_send = 2147483646;
+	val_correct = 2147483647;
+	val_ret = ft_find_next_prime(val_send);
+	printf("Test #7 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
 	val_ret != val_correct ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
