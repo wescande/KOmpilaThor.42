@@ -6,11 +6,12 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 12:59:00 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/08 17:38:39 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
+FONCTION=$(echo "$1" | sed 's/.*\///g')
 
 echo "
 /* ************************************************************************** */
@@ -29,11 +30,9 @@ echo "
 
 int		ft_putchar(char c);
 
-
 int		ft_putnbr(int nb);
 
 void	ft_putstr(char *str);
-
 
 int		ft_atoi(char *str);
 
@@ -49,8 +48,12 @@ echo '
 	/*EX00*/
 	printf("<=================================================>\\n");
 	printf("Ex 00 : ft_putstr\\n");
+	if ('"$FONCTION"' == ft_putstr.c)
+		printf("\033[32mNom = OK \n")
+	else
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
 	printf("\\n");
-	char *str= "j~e s0ys une chAine !@$%#";
+	char *str= "j~e s0ys une chAine !@$%# ";
 	printf("Test #0 avec \"%s\"", str);
 	ft_putstr(str);
 	printf("\033[31m<====================Indeterminé !======================>\\n");
@@ -64,6 +67,10 @@ echo '
 	/*val_send*/
 	printf("<=================================================>\\n");
 	printf("Ex 01 : ft_putnbr\\n");
+	if ('"$FONCTION"' == ft_putnbr.c)
+		printf("\033[32mNom = OK \n")
+	else
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
 	printf("\\n");
 	int val_send;
 	val_send = 0;
@@ -93,6 +100,10 @@ echo '
 	/*EX02*/
 	printf("<=================================================>\\n");
 	printf("Ex 02 : ft_atoi\\n");
+	if ('"$FONCTION"' == ft_atoi.c)
+		printf("\033[32mNom = OK \n")
+	else
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
 	printf("\\n");
 	char str[] = " 4584.358.35";
 	int correct = 0;
@@ -148,6 +159,10 @@ echo '
 	/*EX03*/
 	printf("<=================================================>\\n");
 	printf("Ex 03 : ft_strcpy\\n");
+	if ('"$FONCTION"' == ft_strcpy.c)
+		printf("\033[32mNom = OK \n")
+	else
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
 	printf("\\n");
 	int val_send;
 	int val_send2;
@@ -194,7 +209,11 @@ then
 echo '
 	/*EX04*/
 	printf("<=================================================>\\n");
-	printf("Ex 04 : ft_fibonacci\\n");
+	printf("Ex 04 : ft_strncpy\\n");
+	if ('"$FONCTION"' == ft_strncpy.c)
+		printf("\033[32mNom = OK \n")
+	else
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
 	printf("\\n");
 	int val_send;
 	int val_ret;
@@ -251,7 +270,11 @@ then
 echo '
 	/*EX05*/
 	printf("<=================================================>\\n");
-	printf("Ex 05 : ft_sqrt\\n");
+	printf("Ex 05 : ft_strstr\\n");
+	if ('"$FONCTION"' == ft_strstr.c)
+		printf("\033[32mNom = OK \n")
+	else
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
 	printf("\\n");
 	int val_send;
 	int val_ret;
@@ -314,6 +337,10 @@ echo '
 	/*EX06*/
 	printf("<=================================================>\\n");
 	printf("Ex 06 : ft_is_prime\\n");
+	if ('"$FONCTION"' == ft_strncmp.c)
+		printf("\033[32mNom = OK \n")
+	else
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
 	printf("\\n");
 	int val_send;
 	int val_ret;
