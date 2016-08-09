@@ -1052,7 +1052,7 @@ echo '
 		color(0);
 		printf("\\n");
 		'$EXO'(val_send1[i], val_send2[i]);
-		if (strcmp(val_send1[i], val_send2[i]))
+		if (strcmp(val_send[i], val_send1[i]))
 		{
 			color(RED);
 			correct++;
