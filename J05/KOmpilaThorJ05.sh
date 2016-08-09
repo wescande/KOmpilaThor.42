@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 17:54:11 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 18:17:03 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,11 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n);
 char	*ft_strupcase(char *str);
 char	*ft_strlowcase(char *str);
 char	*ft_strcapitalize(char *str);
+int		ft_str_is_alpha(char *str);
+int		ft_str_is_numeric(char *str);
+int		ft_str_is_uppercase(char *str);
+int		ft_str_is_lowercase(char *str);
+int		ft_str_is_printable(char *str);
 
 
 int		main(void)
