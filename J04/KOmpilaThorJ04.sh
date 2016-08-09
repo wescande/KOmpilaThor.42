@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 05:34:57 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 06:03:17 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -458,7 +458,7 @@ echo "
 	return (0);
 }" >> J04.c
 
-gcc -Wall -Wextra -Werror J04.c ft_putchar.c $1 -o ./KOmpilaThorJ04_compile
+gcc -Wall -Wextra -Werror -Woverflow -Woverloaded-virtual -Woverlength-strings J04.c ft_putchar.c $1 -o ./KOmpilaThorJ04_compile
 
 ./KOmpilaThorJ04_compile
 

@@ -6,20 +6,20 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 17:38:39 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 06:37:08 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
 FONCTION=$(echo "$1" | sed 's/.*\///g')
 
-echo "
+echo '
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   KompilaThorJ05.compile                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wescande <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wescande <wescande@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
 /*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
@@ -27,6 +27,9 @@ echo "
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define color(p) printf("\033[%dm", p)
 
 int		ft_putchar(char c);
 
@@ -40,7 +43,7 @@ char	*ft_strcpy(char *dest, char *src);
 
 int		main(void)
 {
-	\c" > J05.c
+	\c' > J05.c
 
 if [ "$EX" = "ex00" ]
 then
@@ -48,16 +51,26 @@ echo '
 	/*EX00*/
 	printf("<=================================================>\\n");
 	printf("Ex 00 : ft_putstr\\n");
-	if ('"$FONCTION"' == ft_putstr.c)
-		printf("\033[32mNom = OK \n")
+	if (!strcmp("'"$FONCTION"'","ft_putstr.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
 	else
-		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
 	printf("\\n");
 	char *str= "j~e s0ys une chAine !@$%# ";
-	printf("Test #0 avec \"%s\"", str);
+	printf("Test #0 avec");
+	color(32);
+	printf("\\n%s", str);
+	color(0);
+	printf("\\n");	
 	ft_putstr(str);
-	printf("\033[31m<====================Indeterminé !======================>\\n");
-	printf("\033[0m");
+	printf("\\n<====================Indeterminé !======================>\\n");
 ' >> J05.c
 fi
 
@@ -67,30 +80,35 @@ echo '
 	/*val_send*/
 	printf("<=================================================>\\n");
 	printf("Ex 01 : ft_putnbr\\n");
-	if ('"$FONCTION"' == ft_putnbr.c)
-		printf("\033[32mNom = OK \n")
+	if ("'"$FONCTION"'" == "ft_putnbr.c")
+	{
+		color(32);
+		printf("Nom = OK");
+	}
 	else
-		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !\n ");
+	}
+	color(0);
 	printf("\\n");
-	int val_send;
-	val_send = 0;
-	printf("Test #0 avec \"%d\"", val_send);
-	ft_putnbr(val_send);
-	val_send = -1245;
-	printf("\\nTest #1 avec \"%d\"", val_send);
-	ft_putnbr(val_send);
-	val_send = -2147483648;
-	printf("\\nTest #2 avec \"%d\"", val_send);
-	ft_putnbr(val_send);
-	val_send = -2;
-	printf("\\nTest #3 avec \"%d\"", val_send);
-	ft_putnbr(val_send);
-	val_send = 2147483647;
-	printf("\\nTest #4 avec \"%d\"", val_send);
-	ft_putnbr(val_send);
-	printf("\\n");
-	printf("\033[31m<====================Indeterminé !======================>\\n");
-	printf("\033[0m");
+	int val_send [] = {0, 154, 897, -654, 2147483647, -2147483648, 45632};
+	int i = 0;
+	while (i < 7)
+	{
+		printf("Test #%d avec ");
+		color(34);
+		printf("%d \\n", i, val_send[i]);
+		color(32);
+		printf("%d", atoi(val_send[i]));
+		color(0);
+		printf("\\n");
+		ft_putnbr(val_send[i]);
+		i++;
+	}
+	color(34);
+	printf("<====================Indeterminé !======================>\\n");
+	color(0);
 ' >> J05.c
 fi
 
@@ -101,10 +119,19 @@ echo '
 	printf("<=================================================>\\n");
 	printf("Ex 02 : ft_atoi\\n");
 	if ('"$FONCTION"' == ft_atoi.c)
-		printf("\033[32mNom = OK \n")
+		printf("\033[32mNom = OK \n\033[0m")
 	else
-		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n")
+		printf("\033[31mNom = ERREUR ! ! ! ! \033[0m\n ")
 	printf("\\n");
+	int val_send [][] = {" 54", "-154", "--897", "+654", "2 147483647", "- 2147483648", "4#5632" };
+	int i = 0;
+	while (i < 7)
+	{
+		printf("Test #%d avec \033[32m\"%d\"\033[0m", i, val_send[i]);
+		ft_putnbr(val_send[i]);
+		val_send = -1245;
+		i++;
+	}
 	char str[] = " 4584.358.35";
 	int correct = 0;
 	int val_ret;
