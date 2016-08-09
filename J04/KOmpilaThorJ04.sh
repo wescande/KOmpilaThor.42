@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/08 17:46:17 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 05:34:57 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,40 +94,19 @@ echo '
 	printf("<=================================================>\\n");
 	printf("Ex 01 : ft_recursive_factorial\\n");
 	printf("\\n");
-	int ex01;
-	int ret01;
-	int correct;
-	correct = 0;
-	ex01 = 0;
-	printf("Test #0 avec \%d\" :\\n", ex00);
-	ret00 = ft_recursive_factorial(ex00);
-	printf("1\\n%d : result\\n\\n", ret00);
-	ret00 != 1 ? correct++ : 0;
-	ex00 = 5;
-	printf("Test #1 avec \%d\" :\\n", ex00);
-	ret00 = ft_recursive_factorial(ex00);
-	printf("120\\n%d : result\\n\\n", ret00);
-	ret00 != 120 ? correct++ : 0;
-	ex00 = -25;
-	printf("Test #2 avec \%d\" :\\n", ex00);
-	ret00 = ft_recursive_factorial(ex00);
-	printf("0\\n%d : result\\n\\n", ret00);
-	ret00 != 0 ? correct++ : 0;
-	ex00 = -2;
-	printf("Test #3 avec \%d\" :\\n", ex00);
-	ret00 = ft_recursive_factorial(ex00);
-	printf("0\\n%d : result\\n\\n", ret00);
-	ret00 != 0 ? correct++ : 0;
-	ex00 = 12;
-	printf("Test #4 avec \%d\" :\\n", ex00);
-	ret00 = ft_recursive_factorial(ex00);
-	printf("479001600\\n%d : result\\n\\n", ret00);
-	ret00 != 479001600 ? correct++ : 0;
-	ex00 = 13;
-	printf("Test #5 avec \%d\" :\\n", ex00);
-	ret00 = ft_recursive_factorial(ex00);
-	printf("0\\n%d : result\\n\\n", ret00);
-	ret00 != 0 ? correct++ : 0;
+	int val_send[] = {0, 1, 2, 3, 4, 5, 6, -25, 13, 12};
+	int val_ret;
+	int correct = 0;
+	int val_correct[] = {1, 1, 2, 6, 24, 120, 720, 0, 0, 479001600};
+	int i = 0;
+	while (i < 10)
+	{
+		printf("Test #%d avec \"%d\" :\\n", i, val_send[i]);
+		val_ret = ft_recursive_factorial(val_send[i]);
+		printf("%d\\n%d : result\\n\\n", val_correct[i], val_ret);
+		val_ret != val_correct[i] ? correct++ : 0;
+		i++;
+	}
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
 ' >>  J04.c
@@ -420,67 +399,19 @@ echo '
 	printf("<=================================================>\\n");
 	printf("Ex 07 : ft_find_next__prime\\n");
 	printf("\\n");
-	int val_send;
 	int val_ret;
-	int correct;
-	int val_correct;
-	correct = 0;
-	val_send = 0;
-	val_correct = 2;
-	printf("Test #0 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = 1;
-	val_correct = 2;
-	printf("Test #1 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = 2;
-	val_correct = 2;
-	printf("Test #2 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret = ft_find_next_prime(val_send);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = 13;
-	val_correct = 13;
-	printf("Test #3 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = 458;
-	val_correct = 461;
-	printf("Test #4 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = 214745911;
-	val_correct = 214745911;
-	printf("Test #5 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret = ft_find_next_prime(val_send);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = -2250001;
-	val_correct = 2;
-	printf("Test #6 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = 369;
-	val_correct = 373;
-	printf("Test #7 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret != val_correct ? correct++ : 0;
-	val_send = 2147483645;
-	val_correct = 2147483647;
-	printf("Test #8 avec \"%d\" :\\n", val_send);
-	val_ret = ft_find_next_prime(val_send);
-	printf("%d\\n%d : result\\n\\n", val_correct, val_ret);
-	val_ret != val_correct ? correct++ : 0;
+	int correct = 0;
+	int val_send[] = {0, 1, 2, 3, 4, 5, 6, 8, 12, 23, 24, -25, -2147483648, 2147483647, 2147483646, 456, 369};
+	int val_correct[] = {2, 2, 2, 3, 5, 5, 7, 11, 13, 23, 29, 2, 2, 2147483647, 2147483647,457, 373};
+	int i = 0;
+	while (i < 17)
+	{
+		printf("Test #%d avec \"%d\" :\\n", i, val_send[i]);
+		val_ret = ft_find_next_prime(val_send[i]);
+		printf("%d\\n%d : result\\n\\n", val_correct[i], val_ret);
+		val_ret != val_correct[i] ? correct++ : 0;
+		i++;
+	}
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
 ' >>  J04.c
@@ -501,7 +432,8 @@ echo '
 	val_ret = ft_eight_queens_puzzle();
 	printf("Test #0 :\\n%d\\n%d : result\\n\\n", val_correct, val_ret);
 	val_ret != val_correct ? correct++ : 0;
-	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
+	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n") : 0;
+	correct == 1 ? printf("\033[31m<=====================FAIL !======================>\\n") : 0;
 	printf("\033[0m");
 ' >>  J04.c
 fi
