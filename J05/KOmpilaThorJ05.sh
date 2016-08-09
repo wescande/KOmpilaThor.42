@@ -55,6 +55,7 @@ int		ft_str_is_lowercase(char *str);
 int		ft_str_is_printable(char *str);
 char	*ft_strcat(char *dest, char *src);
 char	*ft_strncat(char *dest, char *src, int nb);
+unsigned int ft_strlcat(char *dest, char *src, unsigned int size);
 
 
 int		main(void)
@@ -1124,6 +1125,70 @@ echo '
 		else
 			color(GRE);
 		printf("%s = RESULT", val_send1[i]); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+' >> J05.c
+fi
+
+if [ "$EX" = "ex18" ]
+then
+	EXO="ft_strlcat"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 18 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send1[][45] = {"5", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
+	unsigned int val_send2[] = {12, 6, 5, 2358, 0, 554561, 2, 36};
+	unsigned int ans;
+	unsigned int ret;
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s, %s et %d\\n" , val_send[i], val_send1[i], val_send2[i]);
+		color(32);
+		ans = strlcat(val_send[i], val_send1[i], val_send2[i]);
+		printf("%d = CORRECTION", ans);
+		color(0);
+		printf("\\n");
+		ret = '$EXO'(val_send[i], val_send1[i], val_send2[i]);
+		if (ret != ans)
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+		printf("%d = RESULT", ret); 
 		color(0);
 		printf("\\n");
 		i++;
