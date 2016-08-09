@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 13:19:38 by nmuller          ###   ########.fr        #
+#    Updated: 2016/08/09 13:22:16 by nmuller          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -207,8 +207,8 @@ echo '
 	color(0);
 	printf("\\n");
 	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56", ""};
-	char ret[];
-	char ans[];
+	char ret[30];
+	char ans[30];
 	int correct = 0;
 	int i = 0;
 	while (i < 9)
@@ -270,8 +270,8 @@ echo '
 	printf("\\n");
 	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5};
-	char ret[];
-	char ans[];
+	char ret[30];
+	char ans[30];
 	int correct = 0;
 	int i = 0;
 	while (i < 8)
