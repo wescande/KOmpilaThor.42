@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 06:37:08 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 06:54:37 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,7 @@ echo '
 #include <string.h>
 #define color(p) printf("\033[%dm", p)
 
-int		ft_putchar(char c);
-
-int		ft_putnbr(int nb);
+void	ft_putnbr(int nb);
 
 void	ft_putstr(char *str);
 
@@ -76,11 +74,13 @@ fi
 
 if [ "$EX" = "ex01" ]
 then
+	EX01="ft_putnbr"
 echo '
 	/*val_send*/
 	printf("<=================================================>\\n");
-	printf("Ex 01 : ft_putnbr\\n");
-	if ("'"$FONCTION"'" == "ft_putnbr.c")
+	char *nom = "'$EX01'";
+	printf("Ex 01 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EX01'.c"))
 	{
 		color(32);
 		printf("Nom = OK");
@@ -88,7 +88,7 @@ echo '
 	else
 	{
 		color(31);
-		printf("Nom = ERREUR ! ! ! !\n ");
+		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
 	printf("\\n");
@@ -96,18 +96,19 @@ echo '
 	int i = 0;
 	while (i < 7)
 	{
-		printf("Test #%d avec ");
+		printf("Test #%d avec ", i);
 		color(34);
-		printf("%d \\n", i, val_send[i]);
+		printf("%d \\n" ,val_send[i]);
 		color(32);
-		printf("%d", atoi(val_send[i]));
+		printf("%d", val_send[i]);
 		color(0);
 		printf("\\n");
-		ft_putnbr(val_send[i]);
+		'$EX01'(val_send[i]);
+		printf("\\n");
 		i++;
 	}
 	color(34);
-	printf("<====================Indeterminé !======================>\\n");
+	printf("\\n<====================Indeterminé !======================>\\n");
 	color(0);
 ' >> J05.c
 fi
@@ -526,7 +527,7 @@ echo "
 	return (0);
 }" >> J05.c
 
-gcc -Wall -Wextra -Werror J05.c ft_*.c $1 -o ./.KOmpilaThorJ05.compile
+gcc -Wall -Wextra -Werror J05.c ft_putchar.c $1 -o ./.KOmpilaThorJ05.compile
 
 ./.KOmpilaThorJ05.compile
 
