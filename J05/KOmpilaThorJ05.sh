@@ -725,7 +725,7 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][30] = {"safsdfFAaFFASFAzzZZZSff","",  "Ms5AJ", "798 7", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	char val_send[][30] = {"safsdfFAaFFASFAzzZZZSff","",  "Ms5AJ", "aaa0aa", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ret;
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
 	int correct = 0;
@@ -787,7 +787,7 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][30] = {"4876546","",  "MAJ", "798 7", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	char val_send[][30] = {"487654096","",  "MAJ", "798 7", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ret;
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
 	int correct = 0;
@@ -849,7 +849,7 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][30] = {"quedesminuscules","",  "MAJ", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	char val_send[][30] = {"azquedesminuscules","",  "MAJ", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ret;
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
 	int correct = 0;
@@ -912,7 +912,7 @@ echo '
 	color(0);
 	printf("\\n");
 	int ret;
-	char val_send[][30] = {"QUEDESMAJUSCULES","",  "min", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	char val_send[][30] = {"AZQUEDESMAJUSCULES","",  "min", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
 	int correct = 0;
 	int i = 0;
