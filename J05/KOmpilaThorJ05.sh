@@ -665,7 +665,7 @@ echo '
 	char val_send[][30] = {"aFFd fsadf", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
 
 	char ret[30];
-	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+ForthewiN", "Q"};
+	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin", "Q"};
 	int correct = 0;
 	int i = 0;
 	while (i < 4)
