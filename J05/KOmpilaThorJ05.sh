@@ -32,7 +32,8 @@ echo '
 #define color(p) printf("\033[%dm", p)
 #define RED 31
 #define GRE 32
-#define BLU 34
+#define BLU 36
+#define WHI 37
 
 void	ft_putnbr(int nb);
 
@@ -68,6 +69,7 @@ echo '
 	/*EXO*/
 	printf("<=================================================>\\n");
 	printf("Ex 00 : ft_putstr\\n");
+	int correct = 0;
 	if (!strcmp("'"$FONCTION"'","ft_putstr.c"))
 	{
 		color(32);
@@ -75,6 +77,7 @@ echo '
 	}
 	else
 	{
+		correct++;
 		color(31);
 		printf("Nom = ERREUR ! ! ! !");
 	}
@@ -87,8 +90,16 @@ echo '
 	color(0);
 	printf("\\n");	
 	ft_putstr(str);
-	color(BLU);
-	printf("\\n<====================Indeterminé !======================>\\n");
+	if (correct == 0)
+	{
+		color(BLU);
+		printf("\\n<====================Indeterminé !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
 	color(0);
 	printf("\\n");	
 ' >> J05.c
@@ -100,6 +111,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 01 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -109,6 +121,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -128,9 +141,16 @@ echo '
 		printf("\\n");
 		i++;
 	}
-	color(34);
-	printf("\\n");
-	printf("\\n<====================Indeterminé !======================>\\n");
+	if (correct == 0)
+	{
+		color(BLU);
+		printf("\\n<====================Indeterminé !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
 	color(0);
 	printf("\\n");
 ' >> J05.c
@@ -142,6 +162,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 02 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -151,6 +172,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -158,7 +180,6 @@ echo '
 	char val_send[][15] = {"0", "15^4", "89\\\\7", "-6%54", "2147483647", "-2147483648", "+45632", " - 56"};
 	int ret;
 	int ans;
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -204,6 +225,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 03 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -213,6 +235,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -220,7 +243,6 @@ echo '
 	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56", ""};
 	char ret[30];
 	char ans[30];
-	int correct = 0;
 	int i = 0;
 	while (i < 9)
 	{
@@ -266,6 +288,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 03 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -275,6 +298,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -283,7 +307,6 @@ echo '
 	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5};
 	char ret[30];
 	char ans[30];
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -329,6 +352,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 03 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -339,6 +363,7 @@ echo '
 	{
 		color(31);
 		printf("Nom = ERREUR ! ! ! !");
+		correct++;
 	}
 	color(0);
 	printf("\\n");
@@ -346,7 +371,6 @@ echo '
 	char val_send2[][15] = {";", "15" ,"7", "%", "@", "-" , "-35", "55","23234"};
 	char ret[30];
 	char ans[30];
-	int correct = 0;
 	int i = 0;
 	while (i < 9)
 	{
@@ -393,6 +417,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 03 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -402,6 +427,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -410,7 +436,6 @@ echo '
 	char val_send2[][15] = {"5", "15" ,"7", "dsfsdgwgww87", "-560"};
 	int ret;
 	int ans;
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -459,6 +484,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 07 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -468,6 +494,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -477,7 +504,6 @@ echo '
 	int  val_send3[][15] = {{5}, {6}, {2}, {0}};
 	int ret;
 	int ans;
-	int correct = 0;
 	int i = 0;
 	while (i < 5)
 	{
@@ -525,6 +551,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 08 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -534,6 +561,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -541,7 +569,6 @@ echo '
 	char val_send[][30] = {"asdfsadf", "BonJour", "000KompilaThorForTheWin:>{)@*"};
 	char ret[30];
 	char ans[][30] = {"ASDFSADF", "BONJOUR", "000KOMPILATHORFORTHEWIN:>{)@*"};
-	int correct = 0;
 	int i = 0;
 	while (i < 3)
 	{
@@ -588,6 +615,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 09 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -597,6 +625,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -604,7 +633,6 @@ echo '
 	char ans[][30] = {"asdfsadf", "BonJour", "000KompilaThorForTheWin:>{)@*"};
 	char ret[30];
 	char val_send[][30] = {"AsdfSADF", "BONJOUR", "000KOMPILATHORFORTHEWIN:>{)@*"};
-	int correct = 0;
 	int i = 0;
 	while (i < 3)
 	{
@@ -652,6 +680,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 10 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -661,6 +690,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -669,7 +699,6 @@ echo '
 
 	char ret[30];
 	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin", "Q"};
-	int correct = 0;
 	int i = 0;
 	while (i < 4)
 	{
@@ -715,6 +744,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 13 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -724,6 +754,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -731,7 +762,6 @@ echo '
 	char val_send[][30] = {"safsdfFAaFFASFAzzZZZSff","",  "Ms5AJ", "aaa0aa", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ret;
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -777,6 +807,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 13 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -786,6 +817,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -793,7 +825,6 @@ echo '
 	char val_send[][30] = {"487654096","",  "MAJ", "798 7", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ret;
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -839,6 +870,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 13 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -848,6 +880,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -855,7 +888,6 @@ echo '
 	char val_send[][30] = {"azquedesminuscules","",  "MAJ", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ret;
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -901,6 +933,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 13 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -910,6 +943,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -917,7 +951,6 @@ echo '
 	int ret;
 	char val_send[][30] = {"AZQUEDESMAJUSCULES","",  "min", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
 	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -963,6 +996,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 13 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -972,6 +1006,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -979,7 +1014,6 @@ echo '
 	char val_send[][50] = {"QUEDESMAJ~8219738 4@#$%^&*()_-+=12984120 USCULES"," 8917=?321 r2f we\\asd",  "mi\\tn", "\\n7987", "joifjoiwf jsioadjo", "'"\'"'" , "-21474 83648", "+45632"};
 	int ret;
 	int ans[] = {1, 0, 0, 0, 1, 1, 1, 1 };
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -1025,6 +1059,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 16 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -1034,6 +1069,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -1041,7 +1077,6 @@ echo '
 	char val_send[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	char val_send1[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	char val_send2[][45] = {"bisounours", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -1087,6 +1122,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 17 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -1096,6 +1132,7 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
@@ -1104,7 +1141,6 @@ echo '
 	char val_send1[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	char val_send2[][45] = {"bisounours", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
 	int	val_send3[] = {12, 6, 5, 8, 0, -1, 2, 36};
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -1150,6 +1186,7 @@ then
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
+	int correct = 0;
 	printf("Ex 18 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
@@ -1159,17 +1196,17 @@ echo '
 	else
 	{
 		color(31);
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
 	printf("\\n");
 	char val_send[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
-	char val_send1[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send1[][45] = {"", "", "", "", "", "", ""};
 	char val_send2[][45] = {"5", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
 	unsigned int val_send3[] = {12, 6, 5, 2358, 0, 554561, 2, 36};
 	unsigned int ans;
 	unsigned int ret;
-	int correct = 0;
 	int i = 0;
 	while (i < 8)
 	{
@@ -1177,6 +1214,7 @@ echo '
 		color(34);
 		printf("%s, %s et %d\\n" , val_send[i], val_send2[i], val_send3[i]);
 		color(32);
+		strcpy(val_send1[i], val_send[i]);
 		ans = strlcat(val_send[i], val_send2[i], val_send3[i]);
 		printf("%d = CORRECTION (%s)", ans , val_send[i]);
 		color(0);
