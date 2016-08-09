@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 11:27:39 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 13:19:38 by nmuller          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ int		ft_atoi(char *str);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*ft_strstr(char *str, char *to_find);
+int     ft_strcmp(char *s1, char *s2);
+int		ft_strncmp(char *s1, char *s2, unsigned int n);
+
 
 int		main(void)
 {
@@ -215,7 +218,7 @@ echo '
 		printf("%s \\n" ,val_send[i]);
 		color(32);
 		strcpy(ans, val_send[i]);
-		printf("%s = ANSWER", ans);
+		printf("%s = CORRECTION", ans);
 		color(0);
 		printf("\\n");
 		'$EXO'(ret, val_send[i]);
@@ -278,7 +281,7 @@ echo '
 		printf("%s et %d\\n" , val_send[i], val_send2[i]);
 		color(32);
 		strncpy(ans, val_send[i], val_send2[i]);
-		printf("%s = ANSWER", ans);
+		printf("%s = CORRECTION", ans);
 		color(0);
 		printf("\\n");
 		'$EXO'(ret, val_send[i], val_send2[i]);
@@ -341,7 +344,7 @@ echo '
 		printf("%s et %s\\n" , val_send[i], val_send2[i]);
 		color(32);
 		strcpy(ans, strstr(val_send[i], val_send2[i]));
-		printf("%s = ANSWER", ans);
+		printf("%s = CORRECTION", ans);
 		color(0);
 		printf("\\n");
 		strcpy(ret, '$EXO'(val_send[i], val_send2[i]));
@@ -375,7 +378,7 @@ fi
 
 if [ "$EX" = "ex06" ]
 then
-	EXO="ft_strstr"
+	EXO="ft_strcmp"
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
@@ -394,8 +397,8 @@ echo '
 	printf("\\n");
 	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	char val_send2[][15] = {"5", "15" ,"7", "dsfsdgwgww87", "-560"};
-	char ret[];
-	char ans[];
+	int ret;
+	int ans;
 	int correct = 0;
 	int i = 0;
 	while (i < 8)
@@ -403,20 +406,20 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s et %s\\n" , val_send[i], val_send2[i]);
-		color(32);
-		strcpy(ans, strstr(val_send[i], val_send2[i]));
-		printf("%s = ANSWER", ans);
+		color(37);
+		ans = strcmp(val_send[i], val_send2[i]);
+		printf("%d = CORRECTION", ans);
 		color(0);
 		printf("\\n");
-		strcpy(ret, '$EXO'(val_send[i], val_send2[i]));
-		if (strcmp(ret,ans))
+		ret = '$EXO'(val_send[i], val_send2[i]);
+		if (ret != ans)
 		{
 			color(RED);
 			correct++;
 		}
 		else
 			color(GRE);
-		printf("%s = RESULT", ret); 
+			printf("%d = RESULT", ret); 
 		color(0);
 		printf("\\n");
 		i++;
@@ -438,6 +441,71 @@ echo '
 fi
 
 
+
+if [ "$EX" = "ex07" ]
+then
+	EXO="ft_strncmp"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 07 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send2[][15] = {"5", "15" ,"7", "dsfsdgwgww87", "-560"};
+	int  val_send3[][15] = {{5}, {6}, {2}, {0}};
+	int ret;
+	int ans;
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s, %s  et %d\\n" , val_send[i], val_send2[i], *val_send3[i]);
+		color(37);
+		ans = strncmp(val_send[i], val_send2[i],(unsigned int) val_send3[i]);
+		printf("%d = CORRECTION", ans);
+		color(0);
+		printf("\\n");
+		ret = '$EXO'(val_send[i], val_send2[i], (unsigned int) val_send3[i]);
+		if (ret != ans)
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
 
 
 
