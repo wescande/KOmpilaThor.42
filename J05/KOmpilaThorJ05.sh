@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 17:23:55 by nmuller          ###   ########.fr        #
+#    Updated: 2016/08/09 17:54:11 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -700,6 +700,317 @@ echo '
 
 ' >> J05.c
 fi
+
+if [ "$EX" = "ex11" ]
+then
+	EXO="ft_str_is_alpha"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 13 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][30] = {"safsdfFAaFFASFAzzZZZSff","",  "Ms5AJ", "798 7", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	int ret;
+	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s", val_send[i]);
+		color(37);
+		printf("\\n%d = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		ret = '$EXO'(val_send[i]);
+		if (ret != ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
+if [ "$EX" = "ex12" ]
+then
+	EXO="ft_str_is_numeric"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 13 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][30] = {"4876546","",  "MAJ", "798 7", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	int ret;
+	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s", val_send[i]);
+		color(37);
+		printf("\\n%d = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		ret = '$EXO'(val_send[i]);
+		if (ret != ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
+if [ "$EX" = "ex13" ]
+then
+	EXO="ft_str_is_lowercase"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 13 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][30] = {"quedesminuscules","",  "MAJ", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	int ret;
+	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s", val_send[i]);
+		color(37);
+		printf("\\n%d = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		ret = '$EXO'(val_send[i]);
+		if (ret != ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
+if [ "$EX" = "ex14" ]
+then
+	EXO="ft_str_is_uppercase"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 13 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	int ret;
+	char val_send[][30] = {"QUEDESMAJUSCULES","",  "min", "7987", "joifjoiwf jsioadjo", " ", "-21474 83648", "+45632", " - 56"};
+	int ans[] = {1, 1, 0, 0, 0, 0, 0 };
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s", val_send[i]);
+		color(37);
+		printf("\\n%d = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		ret = '$EXO'(val_send[i]);
+		if (ret != ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
+if [ "$EX" = "ex15" ]
+then
+	EXO="ft_str_is_printable"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 13 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][50] = {"QUEDESMAJ~8219738 4@#$%^&*()_-+=12984120 USCULES"," 8917=?321 r2f we\\asd",  "mi\\tn", "\\n7987", "joifjoiwf jsioadjo", "'"\'"'" , "-21474 83648", "+45632"};
+	int ret;
+	int ans[] = {1, 0, 0, 0, 1, 1, 1, 1 };
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s", val_send[i]);
+		color(37);
+		printf("\\n%d = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		ret = '$EXO'(val_send[i]);
+		if (ret != ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
 
 
 
