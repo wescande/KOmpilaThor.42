@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 13:22:16 by nmuller          ###   ########.fr        #
+#    Updated: 2016/08/09 13:51:15 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -337,7 +337,7 @@ echo '
 	char ans[30];
 	int correct = 0;
 	int i = 0;
-	while (i < 8)
+	while (i < 9)
 	{
 		printf("Test #%d avec ", i);
 		color(34);
