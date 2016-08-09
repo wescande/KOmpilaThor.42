@@ -53,6 +53,7 @@ int		ft_str_is_numeric(char *str);
 int		ft_str_is_uppercase(char *str);
 int		ft_str_is_lowercase(char *str);
 int		ft_str_is_printable(char *str);
+char	*ft_strcat(char *dest, char *src);
 
 
 int		main(void)
@@ -1016,6 +1017,67 @@ echo '
 ' >> J05.c
 fi
 
+if [ "$EX" = "ex16" ]
+then
+	EXO="ft_strcat"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 03 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send1[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send2[][45] = {"bisounours", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
+	int correct = 0;
+	int i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s et %s\\n" , val_send[i], val_send2[i]);
+		color(32);
+		strcat(val_send[i], val_send2[i]);
+		printf("%s = CORRECTION", val_send[i]);
+		color(0);
+		printf("\\n");
+		'$EXO'(val_send1[i], val_send2[i]);
+		if (strcmp(val_send1[i], val_send2[i]))
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+		printf("%s = RESULT", val_send1[i]); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+' >> J05.c
+fi
 
 
 
