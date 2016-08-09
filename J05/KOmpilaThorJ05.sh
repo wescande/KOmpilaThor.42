@@ -1164,8 +1164,9 @@ echo '
 	color(0);
 	printf("\\n");
 	char val_send[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
-	char val_send1[][45] = {"5", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
-	unsigned int val_send2[] = {12, 6, 5, 2358, 0, 554561, 2, 36};
+	char val_send1[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send2[][45] = {"5", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
+	unsigned int val_send3[] = {12, 6, 5, 2358, 0, 554561, 2, 36};
 	unsigned int ans;
 	unsigned int ret;
 	int correct = 0;
@@ -1174,13 +1175,13 @@ echo '
 	{
 		printf("Test #%d avec ", i);
 		color(34);
-		printf("%s, %s et %d\\n" , val_send[i], val_send1[i], val_send2[i]);
+		printf("%s, %s et %d\\n" , val_send[i], val_send2[i], val_send3[i]);
 		color(32);
-		ans = strlcat(val_send[i], val_send1[i], val_send2[i]);
-		printf("%d = CORRECTION", ans);
+		ans = strlcat(val_send[i], val_send2[i], val_send3[i]);
+		printf("%d = CORRECTION (%s)", ans , val_send[i]);
 		color(0);
 		printf("\\n");
-		ret = '$EXO'(val_send[i], val_send1[i], val_send2[i]);
+		ret = '$EXO'(val_send1[i], val_send2[i], val_send3[i]);
 		if (ret != ans)
 		{
 			color(RED);
@@ -1188,7 +1189,7 @@ echo '
 		}
 		else
 			color(GRE);
-		printf("%d = RESULT", ret); 
+		printf("%d = RESULT (%s)", ret, val_send1[i]); 
 		color(0);
 		printf("\\n");
 		i++;
