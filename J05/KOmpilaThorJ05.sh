@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 13:51:15 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 17:23:55 by nmuller          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,9 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n);
 char	*ft_strstr(char *str, char *to_find);
 int     ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
+char	*ft_strupcase(char *str);
+char	*ft_strlowcase(char *str);
+char	*ft_strcapitalize(char *str);
 
 
 int		main(void)
@@ -461,14 +464,14 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send[][15] = {"0?l;;[];=-0123", "fghdfw15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	char val_send2[][15] = {"5", "15" ,"7", "dsfsdgwgww87", "-560"};
 	int  val_send3[][15] = {{5}, {6}, {2}, {0}};
 	int ret;
 	int ans;
 	int correct = 0;
 	int i = 0;
-	while (i < 8)
+	while (i < 5)
 	{
 		printf("Test #%d avec ", i);
 		color(34);
@@ -487,6 +490,197 @@ echo '
 		else
 			color(GRE);
 			printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
+
+if [ "$EX" = "ex08" ]
+then
+	EXO="ft_strupcase"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 08 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][30] = {"asdfsadf", "BonJour", "000KompilaThorForTheWin:>{)@*"};
+	char ret[30];
+	char ans[][30] = {"ASDFSADF", "BONJOUR", "000KOMPILATHORFORTHEWIN:>{)@*"};
+	int correct = 0;
+	int i = 0;
+	while (i < 3)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s\\n" , val_send[i]);
+		color(37);
+		printf("%s = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		strcpy(ret,'$EXO'(val_send[i]));
+		if (ret == ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%s = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
+
+if [ "$EX" = "ex09" ]
+then
+	EXO="ft_strlowcase"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 09 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char ans[][30] = {"asdfsadf", "BonJour", "000KompilaThorForTheWin:>{)@*"};
+	char ret[30];
+	char val_send[][30] = {"AsdfSADF", "BONJOUR", "000KOMPILATHORFORTHEWIN:>{)@*"};
+	int correct = 0;
+	int i = 0;
+	while (i < 3)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s\\n" , val_send[i]);
+		color(37);
+		printf("%s = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		strcpy(ret,'$EXO'(val_send[i]));
+		if (ret == ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%s = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+
+' >> J05.c
+fi
+
+
+
+if [ "$EX" = "ex10" ]
+then
+	EXO="ft_strcapitalize"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	printf("Ex 10 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][30] = {"aFFd fsadf", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
+
+	char ret[30];
+	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+ForthewiN", "Q"};
+	int correct = 0;
+	int i = 0;
+	while (i < 4)
+	{
+		printf("Test #%d avec ", i);
+		color(34);
+		printf("%s\\n" , val_send[i]);
+		color(37);
+		printf("%s = CORRECTION", ans[i]);
+		color(0);
+		printf("\\n");
+		strcpy(ret,'$EXO'(val_send[i]));
+		if (strcmp(ret, ans[i]))
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+			printf("%s = RESULT", ret); 
 		color(0);
 		printf("\\n");
 		i++;
