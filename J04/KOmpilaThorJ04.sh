@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 06:03:17 by wescande         ###   ########.fr        #
+#    Updated: 2016/08/09 10:13:36 by nmuller          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -375,17 +375,32 @@ echo '
 	val_send = 369;
 	val_correct = 0;
 	val_ret = ft_is_prime(val_send);
-	printf("Test #5 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
+	printf("Test #7 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
 	val_ret != val_correct ? correct++ : 0;
 	val_send = 2147483647;
 	val_correct = 1;
 	val_ret = ft_is_prime(val_send);
-	printf("Test #6 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
+	printf("Test #8 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
 	val_ret != val_correct ? correct++ : 0;
 	val_send = 214583500;
 	val_correct = 0;
 	val_ret = ft_is_prime(val_send);
-	printf("Test #6 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
+	printf("Test #9 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
+	val_ret != val_correct ? correct++ : 0;
+	val_send = 24;
+	val_correct = 0;
+	val_ret = ft_is_prime(val_send);
+	printf("Test #10 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
+	val_ret != val_correct ? correct++ : 0;
+	val_send = 9;
+	val_correct = 0;
+	val_ret = ft_is_prime(val_send);
+	printf("Test #11 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
+	val_ret != val_correct ? correct++ : 0;
+	val_send = 25;
+	val_correct = 0;
+	val_ret = ft_is_prime(val_send);
+	printf("Test #12 avec \"%d\" :\\n%d\\n%d : result\\n\\n", val_send, val_correct, val_ret);
 	val_ret != val_correct ? correct++ : 0;
 	correct == 0 ? printf("\033[32m<=====================SUCESS======================>\\n"): printf("\033[31m<=====================FAIL !======================>\\n");
 	printf("\033[0m");
