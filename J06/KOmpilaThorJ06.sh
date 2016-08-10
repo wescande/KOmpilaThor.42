@@ -1,17 +1,68 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    KOmpilaThorJ05.sh                                  :+:      :+:    :+:    #
+#    KOmpilaThorJ06.sh                                  :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: wescande et nmuller                        +#+  +:+       +#+         #
+#    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
+#    Created: 2016/08/10 10:29:42 by wescande          #+#    #+#              #
 #                                                     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
+if [ "$1" == "" ]
+then
+echo "alias KOmpilaThorJ06='sh $0'"
+else
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
 FONCTION=$(echo "$1" | sed 's/.*\///g')
+
+PUTCHAR=$(cat "$1" | grep 'ft_putchar' | head -n 1 | cut -c 1)
+
+if [ "$PUTCHAR" = "v" ]
+then
+echo '/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_KOmpilaThor.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wescande <wescande@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
+/*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+' > ft_putchar_KOmpilaThor.c
+else
+echo '/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_KOmpilaThor.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wescande <wescande@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
+/*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+int		ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (0);
+}
+' > ft_putchar_KOmpilaThor.c
+fi
 
 echo '
 /* ************************************************************************** */
@@ -350,13 +401,13 @@ echo "
 	return (0);
 }" >> J06.c
 
-gcc -Wall -Wextra -Werror J06.c ft_putchar.c $1 -o ./.KOmpilaThorJ06.compile
+gcc -Wall -Wextra -Werror J06.c ft_putchar_KOmpilaThor.c $1 -o ./.KOmpilaThorJ06.compile
 
 ./.KOmpilaThorJ06.compile
 
-rm ./.KOmpilaThorJ06.compile
+rm ./.KOmpilaThorJ06.compile ft_putchar_KOmpilaThor
 
 norminette -R CheckForbiddenSourceHeader $1
 
 
-
+fi
