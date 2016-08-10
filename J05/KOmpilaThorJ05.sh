@@ -58,7 +58,7 @@ char		*ft_strcat(char *dest, char *src);
 char		*ft_strncat(char *dest, char *src, int nb);
 unsigned	int ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned	int ft_strlcpy(char *dest, char *src, unsigned int size);
-unsigned	int ft_strlcpy(char *dest, char *src, unsigned int size);
+void		ft_putnbr_base(int nbr, char *base);
 
 int		main(void)
 {
@@ -1315,6 +1315,60 @@ echo '
 ' >> J05.c
 fi
 
+if [ "$EX" = "ex20" ]
+then
+	EXO="ft_putnbr_base"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	int correct = 0;
+	printf("Ex 19 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		correct++;
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	int val_send[] = {12, 456, -100, 65, 2358, 0, 554561, 2, 36, 2147483647, -2147483648};
+	char val_send1[][45] = {"01", "0123456789ABCDEF", "RTYUF",  "89f\\n7", "%", "2147@483647", "-21474 83648", "+45632", "# @{}", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char ans[][45] = {"|1100|" , "|1C8|" , "|-FRR|" , "|f\\n8|" , "||" , "||", "||" , "||" , "| @ |" , "|ZIKOZJ|", "|-ZIKOZK|"};
+	int i = 0;
+	while (i < 11)
+	{
+		printf("Test #%d avec ", i);
+		color(BLU);
+		printf("%d et %s\\n" , val_send[i], val_send1[i]);
+		color(WHI);
+		printf("%s = CORRECTION", ans[i]);
+		color (BLU);
+		printf("\\n|");
+		fflush(stdout);
+		'$EXO'(val_send[i], val_send1[i]);
+		printf("|\\n");
+		color(0);
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(BLU);
+		printf("\\n<====================INDETERMINATE!======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+' >> J05.c
+fi
 
 
 echo "
