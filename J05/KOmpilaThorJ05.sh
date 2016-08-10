@@ -173,7 +173,7 @@ echo '
 	else
 	{
 		color(31);
-		correct++
+		correct++;
 		printf("Nom = ERREUR ! ! ! !");
 	}
 	color(0);
