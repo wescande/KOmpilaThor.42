@@ -355,9 +355,10 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
-	char val_send1[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
-	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5};
+	char val_send[][30] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54",
+	"2147@483647", "-21474 83648", "+45632", " - 56", "oHnSPymAQzAKpmAQzAKpRv"};
+	char val_send1[][30] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5, 22};
 	char ret[30];
 	char ans[30];
 	int i = 0;
@@ -748,10 +749,12 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][30] = {"aFFd fsadf", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
+	char val_send[][30] = {"aFFd fsadf", "BonJo+-ur",
+	"000kompilathor+forthewiN", "q","rekt17+Lol mdr mdr 4242l42"};
 
 	char ret[30];
-	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin", "Q"};
+	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin",
+	"Q", "Rekt17+Lol Mdr Mdr 4242l42"};
 	int i = 0;
 	while (i < 4)
 	{
