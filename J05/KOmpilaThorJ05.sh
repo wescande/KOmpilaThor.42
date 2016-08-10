@@ -86,7 +86,7 @@ echo '
 	printf("\\n");
 	char *str= "j~e s0ys une chAine !@$%# ";
 	printf("Test #0 avec");
-	color(32);
+	color(WHI);
 	printf("\\n%s", str);
 	color(0);
 	printf("\\n");	
@@ -134,7 +134,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%d \\n" ,val_send[i]);
-		color(32);
+		color(WHI);
 		printf("%d", val_send[i]);
 		color(0);
 		printf("\\n");
@@ -187,7 +187,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s \\n" ,val_send[i]);
-		color(32);
+		color(WHI);
 		ans =  atoi(val_send[i]);
 		printf("%d", ans);
 		color(0);
@@ -250,7 +250,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s \\n" ,val_send[i]);
-		color(32);
+		color(WHI);
 		strcpy(ans, val_send[i]);
 		printf("%s = CORRECTION", ans);
 		color(0);
@@ -314,7 +314,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s et %d\\n" , val_send[i], val_send2[i]);
-		color(32);
+		color(WHI);
 		strncpy(ans, val_send[i], val_send2[i]);
 		printf("%s = CORRECTION", ans);
 		color(0);
@@ -378,7 +378,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s et %s\\n" , val_send[i], val_send2[i]);
-		color(32);
+		color(WHI);
 		strcpy(ans, strstr(val_send[i], val_send2[i]));
 		printf("%s = CORRECTION", ans);
 		color(0);
@@ -443,7 +443,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s et %s\\n" , val_send[i], val_send2[i]);
-		color(37);
+		color(WHI);
 		ans = strcmp(val_send[i], val_send2[i]);
 		printf("%d = CORRECTION", ans);
 		color(0);
@@ -511,7 +511,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s, %s  et %d\\n" , val_send[i], val_send2[i], *val_send3[i]);
-		color(37);
+		color(WHI);
 		ans = strncmp(val_send[i], val_send2[i],(unsigned int) val_send3[i]);
 		printf("%d = CORRECTION", ans);
 		color(0);
@@ -576,7 +576,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s\\n" , val_send[i]);
-		color(37);
+		color(WHI);
 		printf("%s = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -640,7 +640,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s\\n" , val_send[i]);
-		color(37);
+		color(WHI);
 		printf("%s = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -706,7 +706,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s\\n" , val_send[i]);
-		color(37);
+		color(WHI);
 		printf("%s = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -769,7 +769,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s", val_send[i]);
-		color(37);
+		color(WHI);
 		printf("\\n%d = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -832,7 +832,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s", val_send[i]);
-		color(37);
+		color(WHI);
 		printf("\\n%d = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -895,7 +895,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s", val_send[i]);
-		color(37);
+		color(WHI);
 		printf("\\n%d = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -958,7 +958,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s", val_send[i]);
-		color(37);
+		color(WHI);
 		printf("\\n%d = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -1021,7 +1021,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s", val_send[i]);
-		color(37);
+		color(WHI);
 		printf("\\n%d = CORRECTION", ans[i]);
 		color(0);
 		printf("\\n");
@@ -1084,7 +1084,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s et %s\\n" , val_send[i], val_send2[i]);
-		color(32);
+		color(WHI);
 		strcat(val_send[i], val_send2[i]);
 		printf("%s = CORRECTION", val_send[i]);
 		color(0);
@@ -1148,7 +1148,7 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s, %s et %d\\n" , val_send[i], val_send2[i], val_send3[i]);
-		color(32);
+		color(WHI);
 		strncat(val_send[i], val_send2[i], val_send3[i]);
 		printf("%s = CORRECTION", val_send[i]);
 		color(0);
@@ -1214,14 +1214,14 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s, %s et %d\\n" , val_send[i], val_send2[i], val_send3[i]);
-		color(32);
+		color(WHI);
 		strcpy(val_send1[i], val_send[i]);
 		ans = strlcat(val_send[i], val_send2[i], val_send3[i]);
 		printf("%d = CORRECTION (%s)", ans , val_send[i]);
 		color(0);
 		printf("\\n");
 		ret = '$EXO'(val_send1[i], val_send2[i], val_send3[i]);
-		if (ret != ans && strcmp(val_send[i], val_send1[i]))
+		if (ret != ans || strcmp(val_send[i], val_send1[i]))
 		{
 			color(RED);
 			correct++;
@@ -1281,14 +1281,14 @@ echo '
 		printf("Test #%d avec ", i);
 		color(34);
 		printf("%s, %s et %d\\n" , val_send[i], val_send2[i], val_send3[i]);
-		color(32);
+		color(WHI);
 		strcpy(val_send1[i], val_send[i]);
 		ans = strlcpy(val_send[i], val_send2[i], val_send3[i]);
 		printf("%d = CORRECTION (%s)", ans , val_send[i]);
 		color(0);
 		printf("\\n");
 		ret = '$EXO'(val_send1[i], val_send2[i], val_send3[i]);
-		if (ret != ans && strcmp(val_send[i], val_send1[i]))
+		if (ret != ans || strcmp(val_send[i], val_send1[i]))
 		{
 			color(RED);
 			correct++;
