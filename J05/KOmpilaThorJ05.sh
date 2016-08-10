@@ -356,6 +356,7 @@ echo '
 	color(0);
 	printf("\\n");
 	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send1[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5};
 	char ret[30];
 	char ans[30];
@@ -370,7 +371,7 @@ echo '
 		printf("%s = CORRECTION", ans);
 		color(0);
 		printf("\\n");
-		'$EXO'(ret, val_send[i], val_send2[i]);
+		'$EXO'(ret, val_send1[i], val_send2[i]);
 		if (strcmp(ret,ans))
 		{
 			color(RED);
@@ -750,7 +751,7 @@ echo '
 	char val_send[][30] = {"aFFd fsadf", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
 
 	char ret[30];
-	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+ForthewiN", "Q"};
+	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin", "Q"};
 	int i = 0;
 	while (i < 4)
 	{
