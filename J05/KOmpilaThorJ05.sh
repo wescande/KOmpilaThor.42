@@ -13,8 +13,54 @@
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
 FONCTION=$(echo "$1" | sed 's/.*\///g')
 
-echo '
+PUTCHAR=$(cat "$1" | grep 'ft_putchar' | head -n 1 | cut -c 1)
+
+if [ "$PUTCHAR" = "v" ]
+then
+echo '/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_KOmpilaThor.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wescande <wescande@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
+/*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+' > ft_putchar_KOmpilaThor.c
+else
+echo '/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_KOmpilaThor.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wescande <wescande@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
+/*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+int		ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (0);
+}
+' > ft_putchar_KOmpilaThor.c
+fi
+
+
+echo '/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   KompilaThorJ05.compile                             :+:      :+:    :+:   */
@@ -87,7 +133,7 @@ echo '
 	char *str= "j~e s0ys une chAine !@$%# ";
 	printf("Test #0 avec");
 	color(WHI);
-	printf("\\n%s", str);
+	printf("\\n%s          : CORRECTION", str);
 	color(0);
 	printf("\\n");	
 	ft_putstr(str);
@@ -1375,11 +1421,11 @@ echo "
 	return (0);
 }" >> J05.c
 
-gcc -Wall -Wextra -Werror J05.c ft_putchar.c $1 -o ./.KOmpilaThorJ05.compile
+gcc -Wall -Wextra -Werror J05.c ft_putchar_KOmpilaThor.c $1 -o ./.KOmpilaThorJ05.compile
 
 ./.KOmpilaThorJ05.compile
 
-rm ./.KOmpilaThorJ05.compile
+rm ./.KOmpilaThorJ05.compile ft_putchar_KOmpilaThor.c
 
 norminette -R CheckForbiddenSourceHeader $1
 
