@@ -6,17 +6,61 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/08/06 11:11:59 by wescande          #+#    #+#              #
-#    Updated: 2016/08/09 12:52:42 by apetitje         ###   ########.fr        #
+#    Updated: 2016/08/10 09:44:24 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
+PUTCHAR=$(cat "$1" | grep 'ft_putchar' | head -n 1 | cut -c 1)
+
+if [ "$PUTCHAR" = "v" ]
+then
+echo '/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_KOmpilaThor.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wescande <wescande@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
+/*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+' > ft_putchar_KOmpilaThor.c
+else
+echo '/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_KOmpilaThor.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wescande <wescande@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/08/08 12:10:30 by wescande          #+#    #+#             */
+/*   Updated: 2016/08/08 12:10:32 by wescande         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+int		ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (0);
+}
+' > ft_putchar_KOmpilaThor.c
+fi
+
 
 echo "#include <stdio.h>
 
 int		ft_putchar(char c);
-
-int		ft_putnbr(int nb);
 
 int		ft_iterative_factorial(int nb);
 
@@ -473,13 +517,13 @@ echo "
 	return (0);
 }" >> J04.c
 
-gcc -Wall -Wextra -Werror -Woverflow -Woverloaded-virtual -Woverlength-strings J04.c ft_putchar.c $1 -o ./KOmpilaThorJ04_compile
+gcc -Wall -Wextra -Werror -Woverflow -Woverloaded-virtual -Woverlength-strings J04.c ft_putchar_KOmpilaThor.c $1 -o ./KOmpilaThorJ04_compile
 
 ./KOmpilaThorJ04_compile
 
 if [[ "$2" != "-c" ]]
 then
-	rm ./KOmpilaThorJ04_compile
+	rm ./KOmpilaThorJ04_compile ft_putchar_KOmpilaThor.c
 fi
 
 norminette -R CheckForbiddenSourceHeader $1
