@@ -797,7 +797,7 @@ echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 13 : %s\\n", nom);
+	printf("Ex 11 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
@@ -860,7 +860,7 @@ echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 13 : %s\\n", nom);
+	printf("Ex 12 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
@@ -986,7 +986,7 @@ echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 13 : %s\\n", nom);
+	printf("Ex 14 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
@@ -1049,7 +1049,7 @@ echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 13 : %s\\n", nom);
+	printf("Ex 15 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
