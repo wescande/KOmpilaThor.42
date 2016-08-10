@@ -14,6 +14,9 @@
 if [ "$1" == "" ]
 then
 echo "alias KOmpilaThorJ06='sh $0'"
+
+norminette -R CheckForbiddenSourceHeader $DOSSIER
+
 else
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
 
@@ -68,30 +71,55 @@ fi
 
 if [ "$EX" = "ex00" ]
 then
-	echo "Exercice 00 Affichage des fichiers dans $DOSSIER"
-	find $DOSSIER | sed "s/$EX//"
-	echo "Lancement du script"
-	sh $DOSSIER/libft_creator.sh
-	echo "Affichage des fichiers dans $DOSSIER"
-	find $DOSSIER | sed "s/$EX//"
+echo "Le script ne fonctionne pas sur ex00"
+	#	echo "Exercice 00 Affichage des fichiers dans $DOSSIER"
+#	find $DOSSIER | sed "s/$EX//"
+#	echo "Lancement du script"
+#	cd $DOSSIER
+#	sh libft_creator.sh
+#	echo "Affichage des fichiers dans $DOSSIER"
+#	ls -l | grep "*.o"
+#	ls -l | grep "libft.a"
+#	cd ..
 fi
 
 if [ "$EX" = "ex01" ]
 then
 	echo "Exercice 01 dans $DOSSIER"
 	echo "Compilation :"
-	gcc -Wall -Wextra -Werror ft_print_program_name.c ft_putchar_KOmpilaThor.c -o ./.KOmpilaThorJ06.compile
+	gcc -Wall -Wextra -Werror $1 ft_putchar_KOmpilaThor.c -o ./.KOmpilaThorJ06.compile
 	echo "Affichage du nom du programme (./.KOmpilaThorJ06.compile)"
-	./.KO
-
+	./.KOmpilaThorJ06.compile
+	echo ""
 fi
 
+if [ "$EX" = "ex02" ]
+then
+	echo "Exercice 02 dans $DOSSIER"
+	echo "Compilation :"
+	gcc -Wall -Wextra -Werror $1 ft_putchar_KOmpilaThor.c -o ./.KOmpilaThorJ06.compile
+	echo "Affichage des parametres dans l'ordre (A B C D E F G FFFGDHE)"
+	./.KOmpilaThorJ06.compile A B C D E F G FFFGDHE
+fi
 
-# ./.KOmpilaThorJ06.compile
+if [ "$EX" = "ex03" ]
+then
+	echo "Exercice 03 dans $DOSSIER"
+	echo "Compilation :"
+	gcc -Wall -Wextra -Werror $1 ft_putchar_KOmpilaThor.c -o ./.KOmpilaThorJ06.compile
+	echo "Affichage des parametres dans l'ordre inverse (A B C D E F G FFFGDHE >> FFGDHE G F E D C B A)"
+	./.KOmpilaThorJ06.compile A B C D E F G FFFGDHE
+fi
 
- rm ./.KOmpilaThorJ06.compile ft_putchar_KOmpilaThor
+if [ "$EX" = "ex04" ]
+then
+	echo "Exercice 04 dans $DOSSIER"
+	echo "Compilation :"
+	gcc -Wall -Wextra -Werror $1 ft_putchar_KOmpilaThor.c -o ./.KOmpilaThorJ06.compile
+	echo "Affichage des parametres dans l'ordre ascii 'je A a z Z suis pas trie ~!@ io'"
+	./.KOmpilaThorJ06.compile je suis pas trie ~!@ io A a z Z 
+fi
 
+rm ./.KOmpilaThorJ06.compile ft_putchar_KOmpilaThor.c
 norminette -R CheckForbiddenSourceHeader $DOSSIER
-
-
 fi

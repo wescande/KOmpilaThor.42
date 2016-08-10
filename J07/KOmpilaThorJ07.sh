@@ -12,7 +12,7 @@
 
 if [ "$1" == "" ]
 then
-echo "alias KOmpilaThorJ05='sh $0'"
+echo "alias KOmpilaThorJ07='sh $0'"
 else
 
 EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
