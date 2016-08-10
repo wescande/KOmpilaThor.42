@@ -10,7 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
+if [ "$1" == "" ]
+then
+echo "alias KOmpilaThorJ05='sh $0'"
+else
+EX$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
 FONCTION=$(echo "$1" | sed 's/.*\///g')
 
 PUTCHAR=$(cat "$1" | grep 'ft_putchar' | head -n 1 | cut -c 1)
@@ -1429,5 +1433,5 @@ rm ./.KOmpilaThorJ05.compile ft_putchar_KOmpilaThor.c
 
 norminette -R CheckForbiddenSourceHeader $1
 
-
+fi
 
