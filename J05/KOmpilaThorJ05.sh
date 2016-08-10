@@ -363,7 +363,7 @@ echo '
 	char ret[30];
 	char ans[30];
 	int i = 0;
-	while (i < 8)
+	while (i < 9)
 	{
 		printf("Test #%d avec ", i);
 		color(34);
@@ -757,7 +757,7 @@ echo '
 	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin",
 	"Q", "Rekt17+Lol Mdr Mdr 4242l42"};
 	int i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		printf("Test #%d avec ", i);
 		color(34);
