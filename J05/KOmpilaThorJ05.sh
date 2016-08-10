@@ -1346,7 +1346,7 @@ echo '
 		}
 		else
 			color(GRE);
-		printf("%d = RESULT (%s)", ret, val_send1[i]); 
+		printf("%d = RESULT     (%s)", ret, val_send1[i]); 
 		color(0);
 		printf("\\n");
 		i++;
