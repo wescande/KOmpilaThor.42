@@ -632,7 +632,7 @@ echo '
 		color(0);
 		printf("\\n");
 		strcpy(ret,'$EXO'(val_send[i]));
-		if (ret == ans[i])
+		if (strcmp(ret, ans[i]))
 		{
 			color(RED);
 			correct++;
@@ -682,7 +682,7 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char ans[][30] = {"asdfsadf", "BonJour", "000KompilaThorForTheWin:>{)@*"};
+	char ans[][30] = {"asdfsadf", "bonjour", "000kompilathorforthewin:>{)@*"};
 	char ret[30];
 	char val_send[][30] = {"AsdfSADF", "BONJOUR", "000KOMPILATHORFORTHEWIN:>{)@*"};
 	int i = 0;
@@ -696,7 +696,7 @@ echo '
 		color(0);
 		printf("\\n");
 		strcpy(ret,'$EXO'(val_send[i]));
-		if (ret == ans[i])
+		if (strcmp(ret, ans[i]))
 		{
 			color(RED);
 			correct++;
@@ -750,7 +750,7 @@ echo '
 	char val_send[][30] = {"aFFd fsadf", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
 
 	char ret[30];
-	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin", "Q"};
+	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+ForthewiN", "Q"};
 	int i = 0;
 	while (i < 4)
 	{
