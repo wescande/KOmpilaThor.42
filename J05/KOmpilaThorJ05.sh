@@ -367,7 +367,7 @@ echo '
 	{
 		printf("Test #%d avec ", i);
 		color(34);
-		printf("%s et %d\\n" , val_send[i], val_send2[i]);
+		printf("%s, %s et %d\\n" , val_send[i], val_send1[i], val_send2[i]);
 		color(WHI);
 		strncpy(ans, val_send[i], val_send2[i]);
 		printf("%s = CORRECTION", ans);
@@ -423,7 +423,7 @@ echo '
 	color(0);
 	printf("\\n");
 	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "-34+-3545632", "55556555", "12323234412345"};
-	char val_send2[][15] = {";", "15" ,"7", "%", "@", "-" , "-35", "55","23234"};
+	char val_send2[][15] = {";", "15" ,"7", "%", "@", "-" , "-35", "56","23234"};
 	char ret[30];
 	char ans[30];
 	int i = 0;
