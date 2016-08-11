@@ -1555,21 +1555,16 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][90] = {"Salut les aminches c'"'"'est cool show mem on fait de truc terrible.\\n"};
-	int i = 0;
-	while (i < 1)
-	{
-		printf("Test #%d avec ", i);
-		color(BLU);
-		printf("%s" , val_send[i]);
-		color (BLU);
-		printf("\\n");
-		fflush(stdout);
-		'$EXO'(val_send[i], 1);
-		color(0);
-		printf("\\n");
-		i++;
-	}
+	char val_send[90] = {"Salut les aminches c'"'"'est cool show mem on fait de truc terrible.\\n"};
+	printf("Test #0 avec ");
+	color(BLU);
+	printf("%s" , val_send);
+	color (0);
+	printf("\\n");
+	fflush(stdout);
+	'$EXO'(val_send, 75);
+	color(0);
+	printf("\\n");
 	color(BLU);
 	printf("\\n<====================INDETERMINATE !======================>\\n");
 	color(0);
