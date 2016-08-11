@@ -112,7 +112,7 @@ unsigned	int ft_strlcpy(char *dest, char *src, unsigned int size);
 void		ft_putnbr_base(int nbr, char *base);
 int			ft_atoi_base(char *str, char *base);
 void		ft_putstr_non_printable(char *str);
-
+void		*ft_print_memory(void *addr, unsigned int size);
 
 int		main(void)
 {
@@ -1557,7 +1557,7 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][45] = {"Salut les aminches c'"'"'est cool show mem on fait de truc terrible.\n"};
+	char val_send[][90] = {"Salut les aminches c'"'"'est cool show mem on fait de truc terrible.\\n"};
 	int i = 0;
 	while (i < 1)
 	{
@@ -1567,7 +1567,7 @@ echo '
 		color (BLU);
 		printf("\\n");
 		fflush(stdout);
-		'$EXO'(val_send[i]);
+		'$EXO'(val_send[i], 1);
 		color(0);
 		printf("\\n");
 		i++;
