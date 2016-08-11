@@ -1536,6 +1536,48 @@ echo '
 ' >> J05.c
 fi
 
+if [ "$EX" = "ex23" ]
+then
+	EXO="ft_print_memory"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	int correct = 0;
+	printf("Ex 23 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		correct++;
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][45] = {"Salut les aminches c'"'"'est cool show mem on fait de truc terrible.\n"};
+	int i = 0;
+	while (i < 1)
+	{
+		printf("Test #%d avec ", i);
+		color(BLU);
+		printf("%s" , val_send[i]);
+		color (BLU);
+		printf("\\n");
+		fflush(stdout);
+		'$EXO'(val_send[i]);
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	color(BLU);
+	printf("\\n<====================INDETERMINATE !======================>\\n");
+	color(0);
+	printf("\\n");
+' >> J05.c
+fi
 
 echo "
 	return (0);
