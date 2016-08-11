@@ -110,6 +110,7 @@ char		*ft_strncat(char *dest, char *src, int nb);
 unsigned	int ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned	int ft_strlcpy(char *dest, char *src, unsigned int size);
 void		ft_putnbr_base(int nbr, char *base);
+int ft_atoi_base(char *str, char *base);
 
 int		main(void)
 {
@@ -355,13 +356,14 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
-	char val_send1[][15] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
-	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5};
+	char val_send[][30] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54",
+	"2147@483647", "-21474 83648", "+45632", " - 56", "oHnSPymAQzAKpmAQzAKpRv"};
+	char val_send1[][30] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5, 22};
 	char ret[30];
 	char ans[30];
 	int i = 0;
-	while (i < 8)
+	while (i < 9)
 	{
 		printf("Test #%d avec ", i);
 		color(34);
@@ -748,12 +750,14 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][30] = {"aFFd FSADF", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
+	char val_send[][30] = {"aFFd fsADF", "BonJo+-ur",
+	"000kompilathor+forthewiN", "q","rekt17+Lol mdr mdr 4242l42"};
 
 	char ret[30];
-	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin", "Q"};
+	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin",
+	"Q", "Rekt17+Lol Mdr Mdr 4242l42"};
 	int i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		printf("Test #%d avec ", i);
 		color(34);
@@ -1411,6 +1415,71 @@ echo '
 	{
 		color(BLU);
 		printf("\\n<====================INDETERMINATE!======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+' >> J05.c
+fi
+
+if [ "$EX" = "ex21" ]
+then
+	EXO="ft_atoi_base"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	int correct = 0;
+	printf("Ex 19 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		correct++;
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][45] = {"0110010110", "89ABCD", "RTYUF"};
+	char val_send1[][45] = {"01", "0123456789ABCDEF", "RTYUF"};
+	int ans[45] = {406, 9022413, 194};
+	int ret;
+	int i = 0;
+	while (i < 3)
+	{
+		printf("Test #%d avec ", i);
+		color(BLU);
+		printf("%s et %s\\n" , val_send[i], val_send1[i]);
+		color(WHI);
+		printf("%d = CORRECTION", ans[i]);
+		color (BLU);
+		printf("\\n");
+		fflush(stdout);
+		ret = '$EXO'(val_send[i], val_send1[i]);
+		color(0);
+		if (ret != ans[i])
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+		printf("%d = RESULT", ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("\\n<====================SUCESS !======================>\\n");
 	}
 	else
 	{
