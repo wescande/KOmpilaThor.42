@@ -185,14 +185,14 @@ echo '
 ' >> J07.c
 fi
 
-if [ "$EX" = "ex18" ]
+if [ "$EX" = "ex01" ]
 then
-	EXO="ft_strlcat"
+	EXO="ft_range"
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 18 : %s\\n", nom);
+	printf("Ex 01 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
@@ -206,12 +206,10 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][45] = {"ilecl;;[];=-0123", "fesGF^4", "89\\ff\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
-	char val_send1[][45] = {"", "", "", "", "", "", ""};
-	char val_send2[][45] = {"5", "   \\n++rewed", "\t\t456pipo","[]koljejt|||||", "poule", "789*1", "-12ethop", "<<chevre"};
-	unsigned int val_send3[] = {12, 6, 5, 2358, 0, 554561, 2, 36};
-	unsigned int ans;
-	unsigned int ret;
+	int val_send[45] = {-20,0,33,465,-6};
+	int val_send1[45] = {60,34,2,423,10};
+	int *ans;
+	int *ret;
 	int i = 0;
 	while (i < 8)
 	{
@@ -252,14 +250,14 @@ echo '
 ' >> J07.c
 fi
 
-if [ "$EX" = "ex19" ]
+if [ "$EX" = "ex01" ]
 then
-	EXO="ft_strlcpy"
+	EXO="ft_range"
 echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 19 : %s\\n", nom);
+	printf("Ex 01 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
