@@ -748,7 +748,7 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][30] = {"aFFd fsadf", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
+	char val_send[][30] = {"aFFd FSADF", "BonJo+-ur", "000kompilathor+forthewiN", "q"};
 
 	char ret[30];
 	char ans[][30] = {"Affd Fsadf", "Bonjo+-Ur", "000kompilathor+Forthewin", "Q"};
