@@ -110,7 +110,9 @@ char		*ft_strncat(char *dest, char *src, int nb);
 unsigned	int ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned	int ft_strlcpy(char *dest, char *src, unsigned int size);
 void		ft_putnbr_base(int nbr, char *base);
-int ft_atoi_base(char *str, char *base);
+int			ft_atoi_base(char *str, char *base);
+void		ft_putstr_non_printable(char *str);
+
 
 int		main(void)
 {
@@ -1378,7 +1380,7 @@ echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 19 : %s\\n", nom);
+	printf("Ex 20 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
@@ -1433,7 +1435,7 @@ echo '
 	printf("<=================================================>\\n");
 	char *nom = "'$EXO'";
 	int correct = 0;
-	printf("Ex 19 : %s\\n", nom);
+	printf("Ex 21 : %s\\n", nom);
 	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
 	{
 		color(32);
@@ -1486,6 +1488,49 @@ echo '
 		color(RED);
 		printf("\\n<====================FAIL ! ! ! !======================>\\n");
 	}
+	color(0);
+	printf("\\n");
+' >> J05.c
+fi
+
+if [ "$EX" = "ex22" ]
+then
+	EXO="ft_putstr_non_printable"
+echo '
+	printf("<=================================================>\\n");
+	char *nom = "'$EXO'";
+	int correct = 0;
+	printf("Ex 22 : %s\\n", nom);
+	if (!strcmp("'"$FONCTION"'","'$EXO'.c"))
+	{
+		color(32);
+		printf("Nom = OK");
+	}
+	else
+	{
+		color(31);
+		correct++;
+		printf("Nom = ERREUR ! ! ! !");
+	}
+	color(0);
+	printf("\\n");
+	char val_send[][45] = {"0 1f 10 010110", "89\\0ABCD", "fewf\\nRTYUF"};
+	int i = 0;
+	while (i < 3)
+	{
+		printf("Test #%d avec ", i);
+		color(BLU);
+		printf("%s" , val_send[i]);
+		color (BLU);
+		printf("\\n");
+		fflush(stdout);
+		'$EXO'(val_send[i]);
+		color(0);
+		printf("\\n");
+		i++;
+	}
+	color(BLU);
+	printf("\\n<====================INDETERMINATE !======================>\\n");
 	color(0);
 	printf("\\n");
 ' >> J05.c
