@@ -358,9 +358,7 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	char val_send[][30] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54",
-	"2147@483647", "-21474 83648", "+45632", " - 56", "oHnSPymAQzAKpmAQzAKpRv"};
-	char val_send1[][30] = {"0?l;;[];=-0123", "15^4", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
+	char val_send1[][30] = {"sd654g6", "54h213g", "89\\\\7", "-6%54", "2147@483647", "-21474 83648", "+45632", " - 56"};
 	unsigned int val_send2[] = {5, 10 ,0, 3, 1, 5, 2, 5, 22};
 	char ret[30];
 	char ans[30];
@@ -369,9 +367,9 @@ echo '
 	{
 		printf("Test #%d avec ", i);
 		color(34);
-		printf("%s, %s et %d\\n" , val_send[i], val_send1[i], val_send2[i]);
+		printf("%s, %s et %d\\n" , ans, val_send1[i], val_send2[i]);
 		color(WHI);
-		strncpy(ans, val_send[i], val_send2[i]);
+		strncpy(ans, val_send1[i], val_send2[i]);
 		printf("%s = CORRECTION", ans);
 		color(0);
 		printf("\\n");
