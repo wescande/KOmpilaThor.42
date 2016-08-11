@@ -96,7 +96,7 @@ int		ft_atoi(char *str);
 
 char *ft_strdup(char *src);
 
-
+int *ft_range(int min, int max);
 
 
 
@@ -206,51 +206,42 @@ echo '
 	}
 	color(0);
 	printf("\\n");
-	int val_send[45] = {-20,0,33,465,-6};
-	int val_send1[45] = {60,34,2,423,10};
-	int *ans;
+	int val_send[45] = {-20,0,33,399,-6};
+	int val_send1[45] = {60,34,34,423,10};
 	int *ret;
 	int i = 0;
-	while (i < 8)
+	while (i < 5)
 	{
 		printf("Test #%d avec ", i);
 		color(34);
-		printf("%s, %s et %d\\n" , val_send[i], val_send2[i], val_send3[i]);
-		color(WHI);
-		strcpy(val_send1[i], val_send[i]);
-		ans = strlcat(val_send[i], val_send2[i], val_send3[i]);
-		printf("%d = CORRECTION (%s)", ans , val_send[i]);
+		printf("%i et %i\\n" , val_send[i], val_send1[i]);
 		color(0);
-		printf("\\n");
-		ret = '$EXO'(val_send1[i], val_send2[i], val_send3[i]);
-		if (ret != ans || strcmp(val_send[i], val_send1[i]))
-		{
-			color(RED);
-			correct++;
-		}
-		else
-			color(GRE);
-		printf("%d = RESULT (%s)", ret, val_send1[i]); 
+		ret = '$EXO'(val_send[i], val_send1[i]);
+		int j = 0;
+		int fin = val_send[i] - val_send1[i];
+		if (fin < 0)
+			fin *= 1;
+		while (ret[j] < fin)
+			{
+				printf("%i ",ret[j]);
+				++j;
+			}
+		printf("= RESULT"); 
 		color(0);
 		printf("\\n");
 		i++;
 	}
 	if (correct == 0)
 	{
-		color(GRE);
-		printf("\\n<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+		color(BLU);
+		printf("\\n<====================CHECK IT YOURSELF !======================>\\n");
 	}
 	color(0);
 	printf("\\n");
 ' >> J07.c
 fi
 
-if [ "$EX" = "ex01" ]
+if [ "$EX" = "ex02" ]
 then
 	EXO="ft_range"
 echo '
