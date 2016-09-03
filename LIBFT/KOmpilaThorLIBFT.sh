@@ -46,14 +46,7 @@ echo '/* ***********************************************************************
 int		main(void)
 {
 	char	*nom;
-//	char	val_send[][45];
-//	char	val_send1[][45];
-//	char	val_send2[][45];
-//	int		val_send_int[8];
-//	size_t	val_send_size_t[8];
-//	char	s_ret[45];
 	void	*v_ret;
-//	char	s_ans[45];
 	void	*v_ans;
 	int		correct;
 	int		i;
@@ -72,8 +65,8 @@ echo '
 		return (1);
 	if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
 		return (1);
-	int val_send_int[8] = {0, 9, 32, 65, 65, 65, 176, 92};
-	size_t val_send_size_t[8] = {5, 8, 4, 10, 0, 5, 7, 20};
+	int val_send_10[8] = {0, 9, 32, 65, 65, 65, 176, 92};
+	size_t val_send_11[8] = {5, 8, 4, 10, 0, 5, 7, 20};
 	printf("Ex: %s\\n", nom);
 	color(0);
 	printf("\\n");
@@ -82,14 +75,14 @@ echo '
 	{
 		printf("Test #%d fait avec les valeurs : ", i);
 		color(BLU);
-		printf("%d(""%c"") et %lu\\n" , val_send_int[i], val_send_int[i], val_send_size_t[i]);
+		printf("%d(""%c"") et %lu\\n" , val_send_10[i], val_send_10[i], val_send_11[i]);
 		color(WHI);
-		v_ans = '$EXO'(v_ans, val_send_int[i], val_send_size_t[i]);
+		v_ans = '$EXO'(v_ans, val_send_10[i], val_send_11[i]);
 		printf("%s = CORRECTION", (char*)v_ans);
 		color(0);
 		printf("\\n");
-		v_ret = ft_'$EXO'(v_ret, val_send_int[i], val_send_size_t[i]);
-		if (memcmp(v_ans, v_ret, val_send_size_t[i]))
+		v_ret = ft_'$EXO'(v_ret, val_send_10[i], val_send_11[i]);
+		if (memcmp(v_ans, v_ret, val_send_11[i]))
 		{
 			color(RED);
 			correct++;
@@ -105,17 +98,79 @@ echo '
 	if (correct == 0)
 	{
 		color(GRE);
-		printf("Ex: %s", nom);
-		printf("\\n<====================SUCCESS !======================>\\n");
+		printf("Ex: %s\\n", nom);
+		color(GRE);
+		printf("<====================SUCCESS !======================>\\n");
 	}
 	else
 	{
 		color(RED);
-		printf("Ex: %s", nom);
-		printf("\\n<====================FAIL ! ! ! !======================>\\n");
+		printf("Ex: %s\\n", nom);
+		color(RED);
+		printf("<====================FAIL ! ! ! !======================>\\n");
 	}
 	color(0);
 	printf("\\n");
+	free(v_ret);
+	free(v_ans);
+' >> KOMP_LIBFT.c
+
+EXO="bzero"
+echo '
+	printf("<=================================================>\\n");
+	strcpy(nom, "ft_'$EXO'");
+	correct = 0;
+	if (!(v_ret = (void*)malloc(sizeof(void) * 100)))
+		return (1);
+	if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
+		return (1);
+	size_t val_send_20[8] = {5, 8, 4, 10, 0, 5, 7, 20};
+	printf("Ex: %s\\n", nom);
+	color(0);
+	printf("\\n");
+	i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("%lu\\n" , val_send_20[i]);
+		color(WHI);
+		'$EXO'(v_ans, val_send_20[i]);
+		printf("%s = CORRECTION", (char*)v_ans);
+		color(0);
+		printf("\\n");
+		ft_'$EXO'(v_ret, val_send_20[i]);
+		if (memcmp(v_ans, v_ret, val_send_20[i]))
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+		printf("%s = RESULT", (char*)v_ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+		printf("\\n");
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("Ex: %s\\n", nom);
+		color(GRE);
+		printf("<====================SUCCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("Ex: %s\\n", nom);
+		color(RED);
+		printf("<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+	free(v_ret);
+	free(v_ans);
 ' >> KOMP_LIBFT.c
 
 echo "
@@ -127,7 +182,7 @@ make clean
 
 gcc -Wall -Wextra -Werror KOMP_LIBFT.c libft.a -o ./.KOmpilaThorLIBFT.compile
 
-./.KOmpilaThorLIBFT.compile
+./.KOmpilaThorLIBFT.compile | more
 
 rm ./.KOmpilaThorLIBFT.compile
 
