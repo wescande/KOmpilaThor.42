@@ -182,8 +182,8 @@ echo '
 		return (1);
 	if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
 		return (1);
-	char val_send_30[8][50] = {"jesuisfirst", "toto1", "toto2", "toto3", "toto4", "5", "6", "7"};
-	size_t val_send_31[8] = {5, 8, 4, 10, 0, 5, 7, 20};
+	char val_send_30[8][50] = {"jesuisfirst", "\\200", "ab\\0cde", "", "pourquoi vous faites ça ?", "TEST5", "TEST6", "TEST7"};
+	size_t val_send_31[8] = {10, 10, 10, 10, 0, 1, 5, 20};
 	printf("Ex: %s\\n", nom);
 	color(0);
 	printf("\\n");
