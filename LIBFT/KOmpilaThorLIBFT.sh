@@ -48,6 +48,8 @@ int		main(void)
 	char	*nom;
 	void	*v_ret;
 	void	*v_ans;
+	void	*v_ret_tmp;
+	void	*v_ans_tmp;
 	int		correct;
 	int		i;
 	if (!(nom = (char*)malloc(sizeof(char) * 45)))
@@ -196,11 +198,11 @@ echo '
 		color(BLU);
 		printf("|%s| & |%lu|\\n" , val_send_30[i], val_send_31[i]);
 		color(WHI);
-		'$EXO'(v_ans, val_send_30[i], val_send_31[i]);
+		v_ans = '$EXO'(v_ans, val_send_30[i], val_send_31[i]);
 		printf("%s = CORRECTION", (char*)v_ans);
 		color(0);
 		printf("\\n");
-		ft_'$EXO'(v_ret, val_send_30[i], val_send_31[i]);
+		v_ret = ft_'$EXO'(v_ret, val_send_30[i], val_send_31[i]);
 		if (memcmp(v_ans, v_ret, 100))
 		{
 			color(RED);
@@ -243,11 +245,13 @@ echo '
 		return (1);
 	if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
 		return (1);
+	v_ret_tmp = v_ret;
+	v_ans_tmp = v_ans;
 	bzero(v_ret, 100);
 	bzero(v_ans, 100);
 	char val_send_40[8][50] = {"jesuisfirst", "\\200", "ab\\0cde", "", "pourquoi vous faites ça ?", "TEST5", "TEST6", "TEST7"};
 	size_t val_send_41[8] = {20, 20, 20, 20, 20, 20, 20, 20};
-	int		val_send_42[8] = {102, 40, 0, 45, 40, 84, 54, 0};
+	int		val_send_42[8] = {102, 40, 0, 45, 40, 84, 54, 1};
 	printf("Ex: %s\\n", nom);
 	color(0);
 	printf("\\n");
@@ -258,19 +262,38 @@ echo '
 		color(BLU);
 		printf("|%s| & |%d| & |%lu|\\n" , val_send_40[i], val_send_42[i], val_send_41[i]);
 		color(WHI);
-		'$EXO'(v_ans, val_send_40[i], val_send_42[i], val_send_31[i]);
-		printf("%s = CORRECTION", (char*)v_ans);
+		if (!v_ans)
+		{
+			if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
+				return (1);
+			bzero(v_ans, 100);
+			v_ans_tmp = v_ans;
+		}
+		v_ans = '$EXO'(v_ans, val_send_40[i], val_send_42[i], val_send_41[i]);
+		printf("%s = CORRECTION", (char*)((!v_ans)? "NULL" : v_ans_tmp));
 		color(0);
 		printf("\\n");
-		ft_'$EXO'(v_ret, val_send_40[i], val_send_42[i], val_send_41[i]);
-		if (memcmp(v_ans, v_ret, 100))
+		if (!v_ret)
 		{
-			color(RED);
-			correct++;
+			if (!(v_ret = (void*)malloc(sizeof(void) * 100)))
+				return (1);
+			bzero(v_ret, 100);
+			v_ret_tmp = v_ret;
+		}
+		v_ret = ft_'$EXO'(v_ret, val_send_40[i], val_send_42[i], val_send_41[i]);
+		if (!(!v_ans && !v_ret))
+		{
+			if (!v_ans || !v_ret || memcmp(v_ans_tmp, v_ret_tmp, 100))
+			{
+				color(RED);
+				correct++;
+			}
+			else
+				color(GRE);
 		}
 		else
 			color(GRE);
-		printf("%s = RESULT", (char*)v_ret); 
+		printf("%s = RESULT", (char*)((!v_ret)? "NULL" : v_ret_tmp)); 
 		color(0);
 		printf("\\n");
 		i++;
