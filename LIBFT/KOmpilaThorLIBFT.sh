@@ -182,6 +182,8 @@ echo '
 		return (1);
 	if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
 		return (1);
+	bzero(v_ret, 100);
+	bzero(v_ans, 100);
 	char val_send_30[8][50] = {"jesuisfirst", "\\200", "ab\\0cde", "", "pourquoi vous faites ça ?", "TEST5", "TEST6", "TEST7"};
 	size_t val_send_31[8] = {10, 10, 10, 10, 0, 1, 5, 20};
 	printf("Ex: %s\\n", nom);
@@ -199,7 +201,69 @@ echo '
 		color(0);
 		printf("\\n");
 		ft_'$EXO'(v_ret, val_send_30[i], val_send_31[i]);
-		if (memcmp(v_ans, v_ret, val_send_31[i]))
+		if (memcmp(v_ans, v_ret, 100))
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+		printf("%s = RESULT", (char*)v_ret); 
+		color(0);
+		printf("\\n");
+		i++;
+	}
+		printf("\\n");
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("Ex: %s\\n", nom);
+		color(GRE);
+		printf("<====================SUCCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("Ex: %s\\n", nom);
+		color(RED);
+		printf("<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+	free(v_ret);
+	free(v_ans);
+' >> KOMP_LIBFT.c
+
+EXO="memccpy"
+echo '
+	printf("<=================================================>\\n");
+	strcpy(nom, "ft_'$EXO'");
+	correct = 0;
+	if (!(v_ret = (void*)malloc(sizeof(void) * 100)))
+		return (1);
+	if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
+		return (1);
+	bzero(v_ret, 100);
+	bzero(v_ans, 100);
+	char val_send_40[8][50] = {"jesuisfirst", "\\200", "ab\\0cde", "", "pourquoi vous faites ça ?", "TEST5", "TEST6", "TEST7"};
+	size_t val_send_41[8] = {20, 20, 20, 20, 20, 20, 20, 20};
+	int		val_send_42[8] = {102, 40, 0, 45, 40, 84, 54, 0};
+	printf("Ex: %s\\n", nom);
+	color(0);
+	printf("\\n");
+	i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s| & |%d| & |%lu|\\n" , val_send_40[i], val_send_42[i], val_send_41[i]);
+		color(WHI);
+		'$EXO'(v_ans, val_send_40[i], val_send_42[i], val_send_31[i]);
+		printf("%s = CORRECTION", (char*)v_ans);
+		color(0);
+		printf("\\n");
+		ft_'$EXO'(v_ret, val_send_40[i], val_send_42[i], val_send_41[i]);
+		if (memcmp(v_ans, v_ret, 100))
 		{
 			color(RED);
 			correct++;
