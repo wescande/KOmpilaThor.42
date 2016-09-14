@@ -319,6 +319,90 @@ echo '
 	free(v_ans);
 ' >> KOMP_LIBFT.c
 
+EXO="memchr"
+echo '
+	printf("<=================================================>\\n");
+	strcpy(nom, "ft_'$EXO'");
+	correct = 0;
+	char	val_send_memchr[8][50] = {"rcarette", "memchrWescande", "N", "TEST6", "Born_to_code", "TEST7", "", "Coucou"};
+	size_t val_memchr_41[8] = {53, 87, 78, 83, 81, 55, 111};
+	int		val_memchr_42[8] = {20, 20, 20, 20, 20, 20, 20, 20};
+	char	*s1;
+	char	*s2;
+	printf("Ex: %s\\n", nom);
+	color(0);
+	printf("\\n");
+	i = 0;
+	while (i < 8)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s| & |%d| & |%lu|\\n" , val_send_memchr[i], val_memchr_41[i], val_memchr_42[i]);
+		color(WHI);
+		s1 = memchr(val_send_memchr[i], val_memchr_41[i], val_memchr_42[i]);
+		s2 = ft_memchr(val_send_memchr[i], val_memchr_41[i], val_memchr_42[i]);
+		
+		if (s1 == NULL && s2 == NULL)
+		{
+			printf("%s = CORRECTION\\n",s1);
+			color(32);
+			printf("%s = RESULT\\n",s2);
+			color(0);
+		}
+		else if (s1 == NULL && s2 != NULL)
+		{
+			printf("%s = CORRECTION\\n",s1);
+			color(31);
+			printf("%s = RESULT\\n",s2);
+			correct++;
+			color(0);
+		}
+		else if (s1 != NULL && s2 == NULL)
+		{
+			printf("%s = CORRECTION\\n",s1);
+			color(31);
+			printf("%s = RESULT\\n",s2);
+			correct++;
+			color(0);
+		}
+		else if (strcmp(s1, s2) == 0)
+		{
+			printf("%s = CORRECTION\\n",s1);
+			color(32);
+			printf("%s = RESULT\\n",s2);
+			color(0);	
+		}
+		else if (strcmp(s1, s2) != 0)
+		{
+			printf("%s = CORRECTION\\n",s1);
+			color(31);
+			printf("%s = RESULT\\n",s2);
+			correct++;
+			color(0);	
+		}	
+		i++;
+	}
+	printf("\\n");
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("Ex: %s\\n", nom);
+		color(GRE);
+		printf("<====================SUCCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("Ex: %s\\n", nom);
+		color(RED);
+		printf("<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+	free(v_ret);
+	free(v_ans);
+' >> KOMP_LIBFT.c
+
 echo "
 	return (0);
 }" >> KOMP_LIBFT.c
