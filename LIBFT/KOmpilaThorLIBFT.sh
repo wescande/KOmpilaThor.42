@@ -402,6 +402,56 @@ echo '
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
+EXO="strlen"
+echo '
+	printf("<=================================================>\\n");
+	strcpy(nom, "ft_'$EXO'");
+	correct = 0;
+	char	val_send_strlen[5][50] = {"", "Romain && William", "Si celle-ci est fail bah miar de dieu !", "Code", "POPOPOPO\\0O"};
+	int		count_strlen;
+	int		count_ft_strlen;
+	i = 0;
+	while (i < 5)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s\\n" , val_send_strlen[i]);
+		count_ft_strlen = ft_strlen(val_send_strlen[i]);
+		count_strlen = strlen(val_send_strlen[i]);
+		if (count_ft_strlen == count_strlen)
+		{
+			printf("%d = CORRECTION\\n",count_strlen);
+			color(32);
+			printf("%d = RESULT\\n",count_ft_strlen);
+			color(0);	
+		}
+		else
+		{
+			printf("%d = CORRECTION\\n",count_strlen);
+			color(31);
+			printf("%d = RESULT\\n",count_ft_strlen);
+			correct++;
+		}
+		printf("\\n");
+		i++;
+	}
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("Ex: %s\\n", nom);
+		color(GRE);
+		printf("<====================SUCCESS !======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		printf("Ex: %s\\n", nom);
+		color(RED);
+		printf("<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+' >> KOMP_LIBFT.c
 
 echo "
 	return (0);
