@@ -57,6 +57,14 @@ int		main(void)
 	if (!(nom = (char*)malloc(sizeof(char) * 45)))
 		return (1);
 	nom[0] = '\0';
+	printf("\\n\\n\\n");
+	color(RED);
+	printf("Bienvenu dans le KOmpilaThor !");
+	printf("\\n");
+	color(BLU);
+	printf("Utilisation à vos risques et périls.");
+	printf("\\n\\n\\n");
+	color(0);
 	\c' > KOMP_LIBFT.c
 
 
