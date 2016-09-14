@@ -420,6 +420,54 @@ echo '
 	color(0);
 	printf("\\n");
 ' >> KOMP_LIBFT.c
+EXO="strdup"
+echo '
+	printf("<=================================================>\\n");
+	strcpy(nom, "ft_'$EXO'");
+	correct = 0;
+	char	val_send_strdup[3][50] = {"", "Hello World WESCANDE Mouahaha", "rcarette && wescande"};
+	printf("Ex: %s\\n", nom);
+	color(0);
+	printf("\\n");
+	i = 0;
+	while (i < 3)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s\\n" , val_send_strdup[i]);
+		v_ans = (void *) '$EXO'(val_send_strdup[i]);
+		v_ret = (void *) ft_'$EXO'(val_send_strdup[i]);
+		printf("%s = CORRECTION\\n",(char *)v_ans);
+		if (strcmp((char *)v_ans,(char *)v_ret) != 0)
+		{
+			color(RED);
+			correct++;
+		}
+		else
+			color(GRE);
+		printf("%s = RESULTAT\\n",(char *)v_ret);
+		color(0);
+		printf("\\n");
+		i++;
+	}
+		if (correct == 0)
+		{
+			color(GRE);
+			printf("Ex: %s\\n", nom);
+			color(GRE);
+			printf("<====================SUCCESS !======================>\\n");
+		}
+		else
+		{
+			color(RED);
+			printf("Ex: %s\\n", nom);
+			color(RED);
+			printf("<====================FAIL ! ! ! !======================>\\n");
+		}
+		color(0);
+		printf("\\n");
+' >> KOMP_LIBFT.c
+	
 
 echo "
 	return (0);
