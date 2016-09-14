@@ -48,6 +48,8 @@ int		main(void)
 	char	*nom;
 	void	*v_ret;
 	void	*v_ans;
+	int		i_ret;
+	int		i_ans;
 	void	*v_ret_tmp;
 	void	*v_ans_tmp;
 	int		correct;
@@ -245,8 +247,6 @@ echo '
 		return (1);
 	if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
 		return (1);
-	v_ret_tmp = v_ret;
-	v_ans_tmp = v_ans;
 	bzero(v_ret, 100);
 	bzero(v_ans, 100);
 	char val_send_40[8][50] = {"jesuisfirst", "\\200", "ab\\0cde", "", "pourquoi vous faites ça ?", "TEST5", "TEST6", "TEST7"};
@@ -262,28 +262,14 @@ echo '
 		color(BLU);
 		printf("|%s| & |%d| & |%lu|\\n" , val_send_40[i], val_send_42[i], val_send_41[i]);
 		color(WHI);
-		if (!v_ans)
-		{
-			if (!(v_ans = (void*)malloc(sizeof(void) * 100)))
-				return (1);
-			bzero(v_ans, 100);
-			v_ans_tmp = v_ans;
-		}
-		v_ans = '$EXO'(v_ans, val_send_40[i], val_send_42[i], val_send_41[i]);
-		printf("%s = CORRECTION", (char*)((!v_ans)? "NULL" : v_ans_tmp));
+		v_ans_tmp = '$EXO'(v_ans, val_send_40[i], val_send_42[i], val_send_41[i]);
+		printf("%s = CORRECTION", (char*)((!v_ans_tmp)? "NULL" : v_ans));
 		color(0);
 		printf("\\n");
-		if (!v_ret)
+		v_ret_tmp = ft_'$EXO'(v_ret, val_send_40[i], val_send_42[i], val_send_41[i]);
+		if (!(!v_ans_tmp && !v_ret_tmp))
 		{
-			if (!(v_ret = (void*)malloc(sizeof(void) * 100)))
-				return (1);
-			bzero(v_ret, 100);
-			v_ret_tmp = v_ret;
-		}
-		v_ret = ft_'$EXO'(v_ret, val_send_40[i], val_send_42[i], val_send_41[i]);
-		if (!(!v_ans && !v_ret))
-		{
-			if (!v_ans || !v_ret || memcmp(v_ans_tmp, v_ret_tmp, 100))
+			if (!v_ans_tmp || !v_ret_tmp || memcmp(v_ans, v_ret, 100))
 			{
 				color(RED);
 				correct++;
@@ -293,12 +279,12 @@ echo '
 		}
 		else
 			color(GRE);
-		printf("%s = RESULT", (char*)((!v_ret)? "NULL" : v_ret_tmp)); 
+		printf("%s = RESULT", (char*)((!v_ret_tmp)? "NULL" : v_ret)); 
 		color(0);
 		printf("\\n");
 		i++;
 	}
-		printf("\\n");
+	printf("\\n");
 	if (correct == 0)
 	{
 		color(GRE);
@@ -324,11 +310,9 @@ echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
 	correct = 0;
-	char	val_send_memchr[8][50] = {"rcarette", "memchrWescande", "N", "TEST6", "Born_to_code", "TEST7", "", "Coucou"};
-	size_t val_memchr_41[8] = {53, 87, 78, 83, 81, 55, 111};
-	int		val_memchr_42[8] = {20, 20, 20, 20, 20, 20, 20, 20};
-	char	*s1;
-	char	*s2;
+	char	val_send_50[8][50] = {"rcarette", "memchrWescande", "N", "TEST6", "Born_to_code", "TEST7", "", "Coucou"};
+	int		val_send_51[8] = {53, 87, 78, 83, 81, 55, 111};
+	size_t	val_send_52[8] = {20, 20, 20, 20, 20, 20, 20, 20};
 	printf("Ex: %s\\n", nom);
 	color(0);
 	printf("\\n");
@@ -337,49 +321,27 @@ echo '
 	{
 		printf("Test #%d fait avec les valeurs : ", i);
 		color(BLU);
-		printf("|%s| & |%d| & |%lu|\\n" , val_send_memchr[i], val_memchr_41[i], val_memchr_42[i]);
+		printf("|%s| & |%d| & |%lu|\\n" , val_send_50[i], val_send_51[i], val_send_52[i]);
 		color(WHI);
-		s1 = memchr(val_send_memchr[i], val_memchr_41[i], val_memchr_42[i]);
-		s2 = ft_memchr(val_send_memchr[i], val_memchr_41[i], val_memchr_42[i]);
-		
-		if (s1 == NULL && s2 == NULL)
+		v_ans_tmp = '$EXO'(val_send_50[i], val_send_51[i], val_send_52[i]);
+		printf("%s = CORRECTION", (char*)(v_ans_tmp));
+		color(0);
+		printf("\\n");
+		v_ret_tmp = ft_'$EXO'(val_send_50[i], val_send_51[i], val_send_52[i]);
+		if (!(!v_ans_tmp && !v_ret_tmp))
 		{
-			printf("%s = CORRECTION\\n",s1);
-			color(32);
-			printf("%s = RESULT\\n",s2);
-			color(0);
+			if (!v_ans_tmp || !v_ret_tmp || memcmp(v_ans_tmp, v_ret_tmp, 50))
+			{
+				color(RED);
+				correct++;
+			}
+			else
+				color(GRE);
 		}
-		else if (s1 == NULL && s2 != NULL)
-		{
-			printf("%s = CORRECTION\\n",s1);
-			color(31);
-			printf("%s = RESULT\\n",s2);
-			correct++;
-			color(0);
-		}
-		else if (s1 != NULL && s2 == NULL)
-		{
-			printf("%s = CORRECTION\\n",s1);
-			color(31);
-			printf("%s = RESULT\\n",s2);
-			correct++;
-			color(0);
-		}
-		else if (strcmp(s1, s2) == 0)
-		{
-			printf("%s = CORRECTION\\n",s1);
-			color(32);
-			printf("%s = RESULT\\n",s2);
-			color(0);	
-		}
-		else if (strcmp(s1, s2) != 0)
-		{
-			printf("%s = CORRECTION\\n",s1);
-			color(31);
-			printf("%s = RESULT\\n",s2);
-			correct++;
-			color(0);	
-		}	
+		else
+			color(GRE);
+		printf("%s = RESULT", (char*)(v_ret_tmp)); 
+	printf("\\n");
 		i++;
 	}
 	printf("\\n");
@@ -402,36 +364,34 @@ echo '
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
+
 EXO="strlen"
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
 	correct = 0;
 	char	val_send_strlen[5][50] = {"", "Romain && William", "Si celle-ci est fail bah miar de dieu !", "Code", "POPOPOPO\\0O"};
-	int		count_strlen;
-	int		count_ft_strlen;
+	printf("Ex: %s\\n", nom);
+	color(0);
+	printf("\\n");
 	i = 0;
 	while (i < 5)
 	{
 		printf("Test #%d fait avec les valeurs : ", i);
 		color(BLU);
 		printf("|%s\\n" , val_send_strlen[i]);
-		count_ft_strlen = ft_strlen(val_send_strlen[i]);
-		count_strlen = strlen(val_send_strlen[i]);
-		if (count_ft_strlen == count_strlen)
+		i_ret = ft_'$EXO'(val_send_strlen[i]);
+		i_ans = '$EXO'(val_send_strlen[i]);
+		printf("%d = CORRECTION\\n",i_ans);
+		if (i_ret != i_ans)
 		{
-			printf("%d = CORRECTION\\n",count_strlen);
-			color(32);
-			printf("%d = RESULT\\n",count_ft_strlen);
-			color(0);	
-		}
-		else
-		{
-			printf("%d = CORRECTION\\n",count_strlen);
-			color(31);
-			printf("%d = RESULT\\n",count_ft_strlen);
+			color(RED);
 			correct++;
 		}
+		else
+			color(GRE);
+		printf("%d = RESULT\\n",i_ret);
+		color(0);	
 		printf("\\n");
 		i++;
 	}
@@ -462,7 +422,7 @@ make clean
 
 gcc -Wall -Wextra -Werror KOMP_LIBFT.c libft.a -o ./.KOmpilaThorLIBFT.compile
 
-./.KOmpilaThorLIBFT.compile | more
+./.KOmpilaThorLIBFT.compile | less
 
 rm ./.KOmpilaThorLIBFT.compile
 
