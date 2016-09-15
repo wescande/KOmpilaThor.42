@@ -15,8 +15,10 @@ then
 echo "alias KOmpilaThorLIBFT='sh $0'"
 else
 
-EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
-FONCTION=$(echo "$1" | sed 's/.*\///g')
+make re
+make clean
+#EX=$(echo "$1" | sed 's/.*\/ex/ex/' | cut -c 1-4)
+#FONCTION=$(echo "$1" | sed 's/.*\///g')
 
 echo '/* ************************************************************************** */
 /*                                                                            */
@@ -516,8 +518,7 @@ echo "
 	return (0);
 }" >> KOMP_LIBFT.c
 
-make re
-make clean
+
 
 gcc -Wall -Wextra -Werror KOMP_LIBFT.c libft.a -o ./.KOmpilaThorLIBFT.compile
 
