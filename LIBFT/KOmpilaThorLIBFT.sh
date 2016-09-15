@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-if [ "$1" == "" ]
-then
-echo "alias KOmpilaThorLIBFT='sh $0'"
-else
+#if [ $1 == "" ]
+#then
+#echo "alias KOmpilaThorLIBFT='sh $0'"
+#else
 
 make re
 make clean
@@ -56,6 +56,14 @@ int		main(void)
 	void	*v_ans_tmp;
 	int		correct;
 	int		i;
+	(void) i;
+	(void) v_ret;
+	(void) v_ans;
+	(void) v_ret_tmp;
+	(void) v_ans_tmp;
+	(void) i_ret;
+	(void) i_ans;
+	(void) correct;
 	if (!(nom = (char*)malloc(sizeof(char) * 45)))
 		return (1);
 	nom[0] = '\0';
@@ -72,7 +80,7 @@ int		main(void)
 
 EXO="memset"
 nm libft.a | grep ":" | grep -q ft_$EXO
-if [ $? == 0 ]
+if [ $? -eq 0 ]
 then
 echo '
 	printf("<=================================================>\\n");
@@ -137,7 +145,7 @@ fi
 
 EXO="bzero"
 nm libft.a | grep ":" | grep -q ft_$EXO
-if [ $? == 0 ]
+if [ $? -eq 0 ]
 then
 echo '
 	printf("<=================================================>\\n");
@@ -201,7 +209,7 @@ fi
 
 EXO="memcpy"
 nm libft.a | grep ":" | grep -q ft_$EXO
-if [ $? == 0 ]
+if [ $? -eq 0 ]
 then
 echo '
 	printf("<=================================================>\\n");
@@ -268,7 +276,7 @@ fi
 
 EXO="memccpy"
 nm libft.a | grep ":" | grep -q ft_$EXO
-if [ $? == 0 ]
+if [ $? -eq 0 ]
 then
 echo '
 	printf("<=================================================>\\n");
@@ -341,7 +349,7 @@ fi
 
 EXO="memchr"
 nm libft.a | grep ":" | grep -q ft_$EXO
-if [ $? == 0 ]
+if [ $? -eq 0 ]
 then
 echo '
 	printf("<=================================================>\\n");
@@ -407,7 +415,7 @@ fi
 
 EXO="strlen"
 nm libft.a | grep ":" | grep -q ft_$EXO
-if [ $? == 0 ]
+if [ $? -eq 0 ]
 then
 echo '
 	printf("<=================================================>\\n");
@@ -461,7 +469,7 @@ fi
 
 EXO="strdup"
 nm libft.a | grep ":" | grep -q ft_$EXO
-if [ $? == 0 ]
+if [ $? -eq 0 ]
 then
 echo '
 	printf("<=================================================>\\n");
@@ -514,9 +522,12 @@ else
 fi
 	
 
-echo "
+echo '
+	printf("\\n");
+	printf("Merci de vous être servi du KOmpilaThor !");
+	printf("\\n");
 	return (0);
-}" >> KOMP_LIBFT.c
+}' >> KOMP_LIBFT.c
 
 
 
@@ -524,8 +535,8 @@ gcc -Wall -Wextra -Werror KOMP_LIBFT.c libft.a -o ./.KOmpilaThorLIBFT.compile
 
 ./.KOmpilaThorLIBFT.compile | less
 
-rm ./.KOmpilaThorLIBFT.compile
+rm ./.KOmpilaThorLIBFT.compile KOMP_LIBFT.c libft.a
 
 #norminette -R CheckForbiddenSourceHeader $1
 
-fi
+#fi
