@@ -43,6 +43,28 @@ echo '/* ***********************************************************************
 #define WHI 37
 
 
+void	print_function(char *name, int correct)
+{
+	if (correct == 0)
+	{
+		color(GRE);
+		printf("Ex: %s\\n", name);
+		color(GRE);
+		printf("<======================SUCCESS !=======================>\\n");
+	}
+	else
+	{
+		color(RED);
+		if (correct > 0)
+			printf("Ex: %s\\n", name);
+		else
+			printf("Function: %s is missing from the library\\n", name);
+		color(RED);
+		printf("<====================FAIL ! ! ! !======================>\\n");
+	}
+	color(0);
+	printf("\\n");
+}
 
 
 int		main(void)
@@ -113,28 +135,14 @@ echo '
 		}
 		i++;
 	}
-		printf("\\n");
-	if (correct == 0)
-	{
-		color(GRE);
-		printf("Ex: %s\\n", nom);
-		color(GRE);
-		printf("<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("Ex: %s\\n", nom);
-		color(RED);
-		printf("<====================FAIL ! ! ! !======================>\\n");
-	}
-	color(0);
-	printf("\\n");
+	print_function(nom, correct);
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
 else
-	echo "function $EXO missing from the library"
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
 fi
 
 EXO="bzero"
@@ -171,28 +179,14 @@ echo '
 		}
 		i++;
 	}
-		printf("\\n");
-	if (correct == 0)
-	{
-		color(GRE);
-		printf("Ex: %s\\n", nom);
-		color(GRE);
-		printf("<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("Ex: %s\\n", nom);
-		color(RED);
-		printf("<====================FAIL ! ! ! !======================>\\n");
-	}
-	color(0);
-	printf("\\n");
+	print_function(nom, correct);
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
 else
-	echo "function $EXO missing from the library"
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
 fi
 
 EXO="memcpy"
@@ -232,28 +226,14 @@ echo '
 		}
 		i++;
 	}
-		printf("\\n");
-	if (correct == 0)
-	{
-		color(GRE);
-		printf("Ex: %s\\n", nom);
-		color(GRE);
-		printf("<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("Ex: %s\\n", nom);
-		color(RED);
-		printf("<====================FAIL ! ! ! !======================>\\n");
-	}
-	color(0);
-	printf("\\n");
+	print_function(nom, correct);
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
 else
-	echo "function $EXO missing from the library"
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
 fi
 
 EXO="memccpy"
@@ -297,28 +277,14 @@ echo '
 		}
 		i++;
 	}
-	printf("\\n");
-	if (correct == 0)
-	{
-		color(GRE);
-		printf("Ex: %s\\n", nom);
-		color(GRE);
-		printf("<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("Ex: %s\\n", nom);
-		color(RED);
-		printf("<====================FAIL ! ! ! !======================>\\n");
-	}
-	color(0);
-	printf("\\n");
+	print_function(nom, correct);
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
 else
-	echo "function $EXO missing from the library"
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
 fi
 
 EXO="memchr"
@@ -356,28 +322,14 @@ echo '
 		}
 		i++;
 	}
-	printf("\\n");
-	if (correct == 0)
-	{
-		color(GRE);
-		printf("Ex: %s\\n", nom);
-		color(GRE);
-		printf("<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("Ex: %s\\n", nom);
-		color(RED);
-		printf("<====================FAIL ! ! ! !======================>\\n");
-	}
-	color(0);
-	printf("\\n");
+	print_function(nom, correct);
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
 else
-	echo "function $EXO missing from the library"
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
 fi
 
 EXO="strlen"
@@ -407,26 +359,12 @@ echo '
 		}
 		i++;
 	}
-	printf("\\n");
-	if (correct == 0)
-	{
-		color(GRE);
-		printf("Ex: %s\\n", nom);
-		color(GRE);
-		printf("<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("Ex: %s\\n", nom);
-		color(RED);
-		printf("<====================FAIL ! ! ! !======================>\\n");
-	}
-	color(0);
-	printf("\\n");
+	print_function(nom, correct);
 ' >> KOMP_LIBFT.c
 else
-	echo "function $EXO missing from the library"
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
 fi
 
 EXO="strdup"
@@ -456,26 +394,12 @@ echo '
 		}
 		i++;
 	}
-	printf("\\n");
-	if (correct == 0)
-	{
-		color(GRE);
-		printf("Ex: %s\\n", nom);
-		color(GRE);
-		printf("<====================SUCCESS !======================>\\n");
-	}
-	else
-	{
-		color(RED);
-		printf("Ex: %s\\n", nom);
-		color(RED);
-		printf("<====================FAIL ! ! ! !======================>\\n");
-	}
-	color(0);
-	printf("\\n");
+	print_function(nom, correct);
 ' >> KOMP_LIBFT.c
 else
-	echo "function $EXO missing from the library"
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
 fi
 	
 
