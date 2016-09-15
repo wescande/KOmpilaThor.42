@@ -69,6 +69,9 @@ int		main(void)
 
 
 EXO="memset"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? == 0 ]
+then
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
@@ -126,8 +129,14 @@ echo '
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
+else
+	echo "function $EXO missing from the library"
+fi
 
 EXO="bzero"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? == 0 ]
+then
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
@@ -184,8 +193,14 @@ echo '
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
+else
+	echo "function $EXO missing from the library"
+fi
 
 EXO="memcpy"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? == 0 ]
+then
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
@@ -245,8 +260,14 @@ echo '
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
+else
+	echo "function $EXO missing from the library"
+fi
 
 EXO="memccpy"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? == 0 ]
+then
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
@@ -312,8 +333,14 @@ echo '
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
+else
+	echo "function $EXO missing from the library"
+fi
 
 EXO="memchr"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? == 0 ]
+then
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
@@ -372,8 +399,14 @@ echo '
 	free(v_ret);
 	free(v_ans);
 ' >> KOMP_LIBFT.c
+else
+	echo "function $EXO missing from the library"
+fi
 
 EXO="strlen"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? == 0 ]
+then
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
@@ -420,7 +453,14 @@ echo '
 	color(0);
 	printf("\\n");
 ' >> KOMP_LIBFT.c
+else
+	echo "function $EXO missing from the library"
+fi
+
 EXO="strdup"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? == 0 ]
+then
 echo '
 	printf("<=================================================>\\n");
 	strcpy(nom, "ft_'$EXO'");
@@ -467,6 +507,9 @@ echo '
 		color(0);
 		printf("\\n");
 ' >> KOMP_LIBFT.c
+else
+	echo "function $EXO missing from the library"
+fi
 	
 
 echo "
