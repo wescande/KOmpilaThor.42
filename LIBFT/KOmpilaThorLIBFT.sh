@@ -654,14 +654,14 @@ echo '
 	{
 		i_ans = '$EXO'(v_ans, val_send_strlcat[i], val_send_strlcat_2[i]);
 		i_ret = ft_'$EXO'(v_ret, val_send_strlcat[i], val_send_strlcat_2[i]);
-		if (strcmp((char *)v_ans_tmp,(char *)v_ret_tmp))
+		if (i_ans != i_ret || strcmp((char *)v_ans,(char *)v_ret))
 		{
 			printf("Test #%d fait avec les valeurs : ", i);
 			color(BLU);
 			printf("(|%s| || |%s|) & |%s| & |%lu|\\n", (char *)v_ans, (char *)v_ret, val_send_strlcat[i], val_send_strlcat_2[i]);
-			printf("%d = CORRECTION\\n", i_ans);
+			printf("|%d| & |%s| = CORRECTION\\n", i_ans, (char *)v_ans);
 			color(RED);
-			printf("%d = RESULTAT\\n", i_ret);
+			printf("|%d| & |%s| = RESULTAT\\n", i_ret, v_ret);
 			color(0);
 			printf("\\n");
 			correct++;
