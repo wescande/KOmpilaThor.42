@@ -383,6 +383,44 @@ else
 		' >> KOMP_LIBFT.c
 fi
 
+EXO="memcmp"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	correct = 0;
+	char	val_send_'$EXO'[5][50] = {"", "dvjsvj", "Hello World WESCANDE Mouahaha", "rcarette && wescande", "\200 dcd \201 tre"};
+	char	val_send_'$EXO'_2[5][50] = {"gsfd", "", "Hello World WESCANDE Mouahaha", "rcarette && wescande", "\200 dcd \201 tre"};
+	size_t	val_send_'$EXO'_3[5] = {0, 40, 20, 20, 20};
+	i = 0;
+	while (i < 5)
+	{
+		i_ans = '$EXO'(val_send_'$EXO'[i], val_send_'$EXO'_2[i], val_send_'$EXO'_3[i]);
+		i_ret = ft_'$EXO'(val_send_'$EXO'[i], val_send_'$EXO'_2[i], val_send_'$EXO'_3[i]);
+	if (i_ret != i_ans)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s| & |%s| & |%lu|\\n", val_send_'$EXO'[i], val_send_'$EXO'_2[i], val_send_'$EXO'_3[i]);
+		printf("%d = CORRECTION\\n", i_ans);
+		color(RED);
+		printf("%d = RESULTAT\\n", i_ret);
+		color(0);
+		printf("\\n");
+		correct++;
+	}
+		i++;
+	}
+	print_function(nom, correct);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
+
 EXO="strlen"
 nm libft.a | grep ":" | grep -q ft_$EXO
 if [ $? -eq 0 ]
@@ -806,11 +844,11 @@ echo '
 	strcpy(nom, "ft_'$EXO'");
 	printf("Ex: %s\\n", nom);
 	correct = 0;
-	char	val_send_'$EXO'[5][50] = {"", "dvjsvj", "Hello World WESCANDE Mouahaha", "rcarette && wescande", "\200 dcd \201 tre"};
-	char	val_send_'$EXO'_2[5][50] = {"gsfd", "", "Hello World WESCANDE Mouahaha", "rcarette && wescande", "\200 dcd \201 tre"};
-	size_t	val_send_'$EXO'_3[5] = {5, 4, 0, 10, 30};
+	char	val_send_'$EXO'[10][50] = {"", "dvjsvj", "Hello World WESCANDE Mouahaha", "rcarette && wescande", "\200 dcd \201 tre", "a ce que c est long le kompil", "et la ça marche ?", "\200 en ballade", "petit", "t"};
+	char	val_send_'$EXO'_2[10][50] = {"gsfd", "", "Hello World WESCANDE Mouahaha", "rcarette && wescande", "\200 dcd \201 tre", "kompil", "la", "\200", "e", "y"};
+	size_t	val_send_'$EXO'_3[10] = {5, 4, 0, 10, 30, 10, 10, 10, 10, 10};
 	i = 0;
-	while (i < 5)
+	while (i < 10)
 	{
 		v_ans_tmp = (void *) '$EXO'(val_send_'$EXO'[i], val_send_'$EXO'_2[i], val_send_'$EXO'_3[i]);
 		v_ret_tmp = (void *) ft_'$EXO'(val_send_'$EXO'[i], val_send_'$EXO'_2[i], val_send_'$EXO'_3[i]);
