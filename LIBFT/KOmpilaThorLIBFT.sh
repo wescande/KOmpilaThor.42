@@ -1003,7 +1003,7 @@ echo '
 	{
 		i_ans = '$EXO'(val_send_'$EXO'[i]);
 		i_ret = ft_'$EXO'(val_send_'$EXO'[i]);
-	if (i_ret != i_ans)
+	if ((!i_ret && i_ans) || (i_ret && !i_ans))
 	{
 		printf("Test #%d fait avec les valeurs : ", i);
 		color(BLU);
@@ -1039,7 +1039,7 @@ echo '
 	{
 		i_ans = '$EXO'(val_send_'$EXO'[i]);
 		i_ret = ft_'$EXO'(val_send_'$EXO'[i]);
-	if (i_ret != i_ans)
+	if ((!i_ret && i_ans) || (i_ret && !i_ans))
 	{
 		printf("Test #%d fait avec les valeurs : ", i);
 		color(BLU);
@@ -1075,7 +1075,7 @@ echo '
 	{
 		i_ans = '$EXO'(val_send_'$EXO'[i]);
 		i_ret = ft_'$EXO'(val_send_'$EXO'[i]);
-	if (i_ret != i_ans)
+	if ((!i_ret && i_ans) || (i_ret && !i_ans))
 	{
 		printf("Test #%d fait avec les valeurs : ", i);
 		color(BLU);
@@ -1097,10 +1097,149 @@ else
 		' >> KOMP_LIBFT.c
 fi
 
+EXO="isascii"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	correct = 0;
+	int		val_send_'$EXO'[15] = {0, 5, -5, 50, 200, 125, 96, 97, 90, 91, 64, 47, 48, 57, 58};
+	i = 0;
+	while (i < 15)
+	{
+		i_ans = '$EXO'(val_send_'$EXO'[i]);
+		i_ret = ft_'$EXO'(val_send_'$EXO'[i]);
+	if ((!i_ret && i_ans) || (i_ret && !i_ans))
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%d(%c)|\\n", val_send_'$EXO'[i], (char)val_send_'$EXO'[i]);
+		printf("%d = CORRECTION\\n", i_ans);
+		color(RED);
+		printf("%d = RESULTAT\\n", i_ret);
+		color(0);
+		printf("\\n");
+		correct++;
+	}
+		i++;
+	}
+	print_function(nom, correct);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
 
+EXO="isprint"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	correct = 0;
+	int		val_send_'$EXO'[15] = {0, 5, -5, 50, 200, 125, 96, 97, 90, 91, 64, 47, 48, 57, 58};
+	i = 0;
+	while (i < 15)
+	{
+		i_ans = '$EXO'(val_send_'$EXO'[i]);
+		i_ret = ft_'$EXO'(val_send_'$EXO'[i]);
+	if ((!i_ret && i_ans) || (i_ret && !i_ans))
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%d(%c)|\\n", val_send_'$EXO'[i], (char)val_send_'$EXO'[i]);
+		printf("%d = CORRECTION\\n", i_ans);
+		color(RED);
+		printf("%d = RESULTAT\\n", i_ret);
+		color(0);
+		printf("\\n");
+		correct++;
+	}
+		i++;
+	}
+	print_function(nom, correct);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
 
+EXO="toupper"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	correct = 0;
+	int		val_send_'$EXO'[15] = {0, 5, -5, 50, 200, 125, 96, 97, 90, 91, 64, 47, 48, 57, 58};
+	i = 0;
+	while (i < 15)
+	{
+		i_ans = '$EXO'(val_send_'$EXO'[i]);
+		i_ret = ft_'$EXO'(val_send_'$EXO'[i]);
+	if ((!i_ret && i_ans) || (i_ret && !i_ans))
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%d(%c)|\\n", val_send_'$EXO'[i], (char)val_send_'$EXO'[i]);
+		printf("%d = CORRECTION\\n", i_ans);
+		color(RED);
+		printf("%d = RESULTAT\\n", i_ret);
+		color(0);
+		printf("\\n");
+		correct++;
+	}
+		i++;
+	}
+	print_function(nom, correct);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
 
-
+EXO="tolower"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	correct = 0;
+	int		val_send_'$EXO'[15] = {0, 5, -5, 50, 200, 125, 96, 97, 90, 91, 64, 47, 48, 57, 58};
+	i = 0;
+	while (i < 15)
+	{
+		i_ans = '$EXO'(val_send_'$EXO'[i]);
+		i_ret = ft_'$EXO'(val_send_'$EXO'[i]);
+	if ((!i_ret && i_ans) || (i_ret && !i_ans))
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%d(%c)|\\n", val_send_'$EXO'[i], (char)val_send_'$EXO'[i]);
+		printf("%d = CORRECTION\\n", i_ans);
+		color(RED);
+		printf("%d = RESULTAT\\n", i_ret);
+		color(0);
+		printf("\\n");
+		correct++;
+	}
+		i++;
+	}
+	print_function(nom, correct);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
 
 echo '
 	printf("\\n");
