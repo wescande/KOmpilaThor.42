@@ -75,6 +75,20 @@ void	print_function(char *name, int correct)
 	printf("\\n");
 }
 
+void	fn_striter(char *s)
+{
+	printf("%c", (char)toupper(*s));
+}
+
+void	fn_striteri(unsigned int i, char *s)
+{
+	printf("%c(%d)", (char)tolower(*s), i);
+}
+
+char	fn_strmap(char c)
+{
+	return((char)toupper((int)c));
+}
 
 int		main(void)
 {
@@ -1376,6 +1390,108 @@ else
 	print_function("ft_'$EXO'", -1);
 		' >> KOMP_LIBFT.c
 fi
+
+EXO="striter"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	char	val_send_'$EXO'[5][50] = {"", "sv sdqsd fds f", "\200", "WTF", "p"};
+	void (*ma_f_'$EXO')(char *);
+	ma_f_'$EXO' = fn_'$EXO';
+	i = 0;
+	correct = 0;
+	while (i < 5)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s|", val_send_'$EXO'[i]);
+		printf("\\n");
+		color(YEL);
+		ft_'$EXO'(val_send_'$EXO'[i], ma_f_'$EXO');
+		color(WHI);
+		printf("\\n");
+		color(0);
+		++i;
+	}
+	print_function(nom, 50);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
+
+EXO="striteri"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	char	val_send_'$EXO'[5][50] = {"", "sv sdqsd fds f", "\200", "WTF", "p"};
+	void (*ma_f_'$EXO')(unsigned int, char *);
+	ma_f_'$EXO' = fn_'$EXO';
+	i = 0;
+	correct = 0;
+	while (i < 5)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s|", val_send_'$EXO'[i]);
+		printf("\\n");
+		color(YEL);
+		ft_'$EXO'(val_send_'$EXO'[i], ma_f_'$EXO');
+		printf("\\n");
+		color(0);
+		++i;
+	}
+	print_function(nom, 50);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
+
+EXO="strmap"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	char	val_send_'$EXO'[5][50] = {"", "sv sdqsd fds f", "\200", "WTF", "p"};
+	char (*ma_f_'$EXO')(char);
+	ma_f_'$EXO' = fn_'$EXO';
+	i = 0;
+	correct = 0;
+	while (i < 5)
+	{
+		printf("Test #%d fait avec les valeurs : ", i);
+		color(BLU);
+		printf("|%s|", val_send_'$EXO'[i]);
+		printf("\\n");
+		color(YEL);
+		s_ret = ft_'$EXO'(val_send_'$EXO'[i], ma_f_'$EXO');
+		printf("%s", s_ret);
+		printf("\\n");
+		color(0);
+		++i;
+	}
+	print_function(nom, 50);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
+
+
+
+
 
 
 
