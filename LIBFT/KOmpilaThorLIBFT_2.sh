@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 16:52:44 by wescande          #+#    #+#              #
-#    Updated: 2016/11/02 16:52:57 by wescande         ###   ########.fr        #
+#    Updated: 2016/11/02 18:33:34 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -313,26 +313,6 @@ then
 echo '
 	strcpy(nom, "ft_'$EXO'");
 	printf("Ex: %s\\n", nom);
-	char	val_send_'$EXO'[5][50] = {"", "sv sdqsd fds f", "\200", "WTF", "p"};
-	char (*ma_f_'$EXO')(char);
-	ma_f_'$EXO' = fn_'$EXO';
-	i = 0;
-	correct = 0;
-	while (i < 5)
-	{
-		printf("Test #%d fait avec les valeurs : ", i);
-		color(BLU);
-		printf("|%s|", val_send_'$EXO'[i]);
-		printf("\\n");
-		color(YEL);
-		printf("1111\\n");
-		s_ret = ft_'$EXO'(val_send_'$EXO'[i], ma_f_'$EXO');
-		printf("222\\n");
-		printf("%s", s_ret);
-		printf("\\n");
-		color(0);
-		++i;
-	}
 	print_function(nom, 50);
 ' >> KOMP_LIBFT.c
 else
@@ -359,14 +339,12 @@ echo "Done"
 
 echo ""
 echo "EXECUTION :"
-./.KOmpilaThorLIBFT.compile
+./.KOmpilaThorLIBFT.compile | less
 echo "Done"
 
 echo ""
 echo "NETTOYAGE :"
-#rm ./.KOmpilaThorLIBFT.compile KOMP_LIBFT.c libft.a
+rm ./.KOmpilaThorLIBFT.compile KOMP_LIBFT.c libft.a
 echo "Done"
 
 #norminette -R CheckForbiddenSourceHeader $1
-
-#fi
