@@ -6,7 +6,7 @@
 #    By: wescande <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/02 16:52:16 by wescande          #+#    #+#              #
-#    Updated: 2016/11/02 16:52:38 by wescande         ###   ########.fr        #
+#    Updated: 2016/11/02 17:27:46 by wescande         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,10 +72,21 @@ void	affichagelst(t_list *malst)
 {
 	while(malst)
 	{
-		printf("%s (%zu)-> \\n", malst->content, malst->content_size);
+		printf("%s|%zu|", malst->content, malst->content_size);
+		if (malst->next)
+			printf("-->");
+		else
+			printf("\\n");
 		malst = malst->next;
 	}
 }
+
+t_list	*fn_lstmap(t_list *elem)
+{
+	return(ft_lstnew(elem->content, elem->content_size-1));
+}
+
+
 
 int		main(void)
 {
@@ -130,12 +141,18 @@ echo '
 		malst = ft_'$EXO'(val_send_'$EXO'[i], val_send_1'$EXO'[i]);
 		if (!malst || malst->content_size != val_send_1'$EXO'[i] || strncmp((char *)malst->content, val_send_'$EXO'[i], val_send_1'$EXO'[i]) != 0)
 		{
+			printf("Test #%d fait avec les valeurs : ", i);
+			color(BLU);
+			printf("|%s|, |%lu|\\n", val_send_'$EXO'[i], val_send_1'$EXO'[i]);
+			color(RED);
+			printf("RESULTAT : \\n");
+			affichagelst(malst);
+			color(0);
+			printf("\\n");
 			++correct;
 		}
 		++i;
 	}
-	malst = ft_'$EXO'("premierMaillon", 15);
-	affichagelst(malst);
 	print_function(nom, correct);
 ' >> KOMP_LIBFT.c
 else
@@ -144,7 +161,47 @@ else
 		' >> KOMP_LIBFT.c
 fi
 
+EXO="lstdelone"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	print_function(nom, 50);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
 
+EXO="lstmap"
+nm libft.a | grep ":" | grep -q ft_$EXO
+if [ $? -eq 0 ]
+then
+echo '
+	strcpy(nom, "ft_'$EXO'");
+	printf("Ex: %s\\n", nom);
+	t_list *malist;
+	t_list *new;
+	t_list *(*maf'$EXO')(t_list *elem);
+	maf'$EXO' = fn_'$EXO';
+	ft_lstadd(&malist, ft_lstnew("chaine11111", 6));
+	ft_lstadd(&malist, ft_lstnew("chaine22222", 7));
+	ft_lstadd(&malist, ft_lstnew("chaine33333", 8));
+	ft_lstadd(&malist, ft_lstnew("chaine44444", 9));
+	new = ft_'$EXO'(malist, maf'$EXO');
+
+	affichagelst(malist);
+	affichagelst(new);
+	print_function(nom, 50);
+' >> KOMP_LIBFT.c
+else
+	echo '
+	print_function("ft_'$EXO'", -1);
+		' >> KOMP_LIBFT.c
+fi
 
 
 
