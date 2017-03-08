@@ -2,7 +2,7 @@
 Le KOmpilaThor est un script qui permet de corriger certains exercices de 42.
 
 Le premier KOmpilaThor permettait de corriger la J02 de la piscine de 42, puis il y a eu ceux pour les J04/J05 qui nécessitaient de nombreux tests.
-**Actuellement le développement se fait sur le KOmpilaThor de la LIBFT.**
+~~Actuellement le développement se fait sur le KOmpilaThor de la LIBFT.~~ **NO MORE DEVEL**
 
 Chaque KOmpilaThor a un fonctionnement différente mais le principe globale reste le même:
 
